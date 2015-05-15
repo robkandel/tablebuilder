@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0;">
+	<title>TableBuilder Generator</title>
+	<meta name="referrer" content="always"> 	
+	<meta name="byline" content="By Rob Kandel" />
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700,400' rel='stylesheet' type='text/css'>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/colorpicker.css">
+	<link rel="stylesheet" type="text/css" href="css/table_builder.min.0.0.5.css">
+	<link rel="stylesheet" type="text/css" href="css/dataviz_generator.min.0.2.0.css">
+	<style type="text/css" id="custom_styelsheet"></style>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<!--[if lt IE 9]> 
+	<script>
+		var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+			"figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+		    "progress,section,time,video").split(',');
+		for (var i = 0; i < e.length; i++) {
+			document.createElement(e[i]);
+		}
+	</script>
+	<script type="text/javascript" src="js/respond.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script type="text/javascript" src="js/FileSaver.min.js"></script>
+	<script type="text/javascript" src="js/jszip.min.js"></script>
+	<script type="text/javascript" src="js/jquery.table_builder.min.0.0.5.js"></script>
+	<script type="text/javascript" src="js/dataviz_style_options.0.0.2.js"></script>
+	<script type="text/javascript" src="js/dataviz_generator.min.0.0.2.js"></script>
+</head>
+<body class="bodyAbsolute">
+	<header class="headerWrapper transitionAll">
+		<hgroup class="headerInnerWrapper transitionAll">
+			<div class="headerLogo transitionAll">
+				<div class="headerTitle transitionAll">TableBuilder Generator</div>
+				<div class="clearAll"></div>
+			</div>
+			<div class="optionWrapper transitionAll">
+				<div class="menuButton">
+					<div class="navIcon transitionAll"><span></span><span></span><span></span><span></span></div>
+				</div>
+				<div id="nav_list" class="navListWrapper">
+					<div class="buttonItem transitionAll stateButton hiddenContainer" data-role="state_home" data-index="0">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-home transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Home
+						</span>
+					</div>
+					<div class="buttonItem transitionAll stateButton" data-role="state_data" data-index="1">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-database transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Insert Data
+						</span>
+					</div>
+					<div class="buttonItem transitionAll stateButton" data-role="state_code" data-index="2">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-code transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Customize Table
+						</span>
+					</div>
+					<div class="buttonItem transitionAll stateButton" data-role="state_theme" data-index="2">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-paint-brush transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Theme Roller
+						</span>
+					</div>
+					<div class="buttonItem transitionAll stateButton" data-role="state_help" data-index="4">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-question-circle transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Help
+						</span>
+					</div>
+					<div class="clearAll"></div>
+				</div>
+			</div>
+			<div class="clearAll"></div>
+		</hgroup>
+	</header>
+	<section class="transitionAll container containerSection containerSectionContent" data-role="home_wrapper">
+		<div class="container containerHomeWrapper">
+			<div class="container containerTitleWrapper">
+				<div class="pageTitle">TableBuilder<span>JS</span></div>
+				<div class="pageSubhead">Build beautiful and customizable HTML tables without writing a single line of code</div>
+				<div class="buttonItem transitionAll homeButtonData">Start now, its free</div>
+				<div class="clearAll"></div>
+			</div>
+			<div class="containerDescriptionWrapper containerDescriptionWrapperCenter">
+				<div class="containerInner">
+					<div class="containerTitle">
+						Publish quickly
+					</div>
+					<div class="containerDescriptionText">
+						With TableBuilder, you can go from data to a HTML table suitable for any website in a matter of seconds. Easily adjust settings and styles to fit your every need.
+					</div>
+				</div>
+			</div>
+			<div class="containerDescriptionWrapper containerTestWrapper">
+				<div class="containerInner">
+					
+					<div id="tbTest"></div>
+					<script type="text/javascript">
+						jQuery(document).ready(function() {
+							jQuery('#tbTest').table_builder({
+								"src":"https://docs.google.com/spreadsheets/d/17rvg3l7Yq6zaB7mgeMExbygNy0LkZYS7C6cpDTixNQo/pubhtml?gid=0&single=true",
+								"external_data":true,
+								"sort_column":"4",
+								"visible_rows": 5,
+								"visible_row_options": [5,10,15,'all'],	
+								"table_source": 'https://www.mockaroo.com/',
+								"table_source_link":'https://www.mockaroo.com/'
+							})
+						});
+					</script>
+				</div>
+			</div>
+			<div class="containerDescriptionWrapper">
+				<div class="containerInner">
+					<div class="containerTitle">
+						About TableBuilder
+					</div>
+					<div class="containerSplit50 containerSplit50Left containerSplitLeft containerDescriptionText">
+						TableBuilder, an open-source jQuery plugin tool, allows users of any level to create beautiful searchable, sortable and responsive HTML tables. All you need is a Google Spreadsheet or Microsoft Excel CSV file to get started. From there, customize over thirty options to make your table display your data the best possible way. Add custom styles to integrate perfectly in any website. Best part is, you can do all this without knowing how to write a single line of code! 
+					</div>
+					<div class="containerSplit50 containerSplitRight">
+						<ul class="listExplainer">
+							<li class="listItem"><span class="listItemSymb"><i class="fa fa-check-circle"></i></span>Easy to use editor makes it simple to change options</li>
+							<li class="listItem"><span class="listItemSymb"><i class="fa fa-check-circle"></i></span>Customize every color and style</li>
+							<li class="listItem"><span class="listItemSymb"><i class="fa fa-check-circle"></i></span>Works in all modern browsers</li>
+							<li class="listItem"><span class="listItemSymb"><i class="fa fa-check-circle"></i></span>Fully responsive design, optomized for mobile websites</li>
+							<li class="listItem"><span class="listItemSymb"><i class="fa fa-check-circle"></i></span>Come back and change options anytime</li>
+						</ul>
+					</div>
+					<div class="clearAll"></div>
+				</div>
+			</div>
+			<div class="containerDescriptionWrapper containerSetupWrapper">
+				<div class="buttonItem transitionAll homeButtonSplit homeButtonDataStart">Start building a table</div>
+				<div class="buttonItem transitionAll homeButtonSplit homeButtonDataDemo">Try out a demo</div>
+				<div class="clearAll"></div>
+			</div>
+			<footer>
+				<div class="footerInner">
+					Created by Rob Kandel <span>&nbsp;|&nbsp;</span> <a href="https://github.com/robkandel/tablebuilder" target="_blank"><i class="fa fa-github"></i> Fork this project on Github</a>
+				</div>
+			</footer>
+		</div>
+	</section>
+	<section class="transitionAll container containerSection containerSectionContent" data-role="data_wrapper">
+		<div class="container containerHomeWrapper containerInputDataWrapper">
+			<div class="container containerTitleWrapper">
+				<div class="pageTitle pageTitleSmaller">Getting Started</div>
+				<div class="pageSubhead pageSubheadSmaller">Create a new table using either a Google Spreadsheet or a CSV file. If you already used TableBuilder to create a table, use the "<i>TableBuilder_config</i>" file to make updates or use as a template base</div>
+				<div class="clearAll"></div>
+			</div>
+			<div class="containerDescriptionWrapper">
+				<div class="containerInner">
+					<div class="container containerDataConverter">
+						<div class="pageTitle pageTitleSmallest">Input your data</div>
+						<div class="container containerTitleData">
+							Paste your published Google Spreadsheet URL below or click a tab to use a different option to get started. Need Help? Check out the <a href="wiki.html">wiki</a> for detailed instructions.
+						</div>
+						<div class="container createToolTabWrapper">
+							<div class="buttonItem transitionAll toolTab toolTabActive" data-role="create_tab_google">Google Spreadsheet</div>
+							<div class="buttonItem transitionAll toolTab" data-role="create_tab_csv">CSV File</div>
+							<div class="buttonItem transitionAll toolTab" data-role="create_tab_update">Update existing table</div>
+							<div class="clearAll"></div>
+						</div>
+						<div class="container containerCreateToolWrapper">
+							<div class="container createTool createToolActive" data-role="create_tool_google">	
+								<div class="inputFieldWrapper inputFieldDataSource">
+									<input class="inputField transitionBackground inputFieldCreate" type="text" value="Paste published Google Spreadsheet URL here" data-role="google_spreadsheet_url" />
+									<div class="buttonItem transitionAll googleCreate">Create Table</div>
+								</div>
+								<!-- <div class="googleHelp"><span class="highlight"><a href="/wiki.html#google_setup">Need help publishing your Spreadsheet?</a></span></div> -->
+								<div class="clearAll"></div>
+								<!-- <div class="containerInner">
+									<div class="container containerTitleData">
+										Follow these three easy steps to use your Google Spreedsheet
+									</div>
+									<div class="container">
+										<div class="container containerSplit33 containerSplitLeft containerSetupStep">
+											<div class="stepNumber">
+												Step 1
+											</div>
+											<div class="stepText">
+												Gather your data and create a <a href="http://www.google.com/sheets/about/" target="_blank">Google Spreadsheet</a>. If you prefer to use Microsoft Excel, simply use "Save As" and convert your file to a CSV file.
+											</div>
+											<div class="clearAll"></div>
+										</div>
+										<div class="container containerSplit33 containerSplitLeft containerSplit33Middle containerSetupStep">
+											<div class="stepNumber">
+												Step 2
+											</div>
+											<div class="stepText">
+												Click "Publish to web" option in the "File" menu.
+												<div class="helpImage">
+													<span class="stepImage"><img src="images/tb_explainer_google_publish.jpg"/></span>
+													<span class="helperImageLogo"><i class="fa fa-hand-o-up"></i></span>
+												</div>
+											</div>
+											<div class="clearAll"></div>
+										</div>
+										<div class="container containerSplit33 containerSplitLeft containerSetupStep">
+											<div class="stepNumber">
+												Step 3
+											</div>
+											<div class="stepText">
+												In the popup box, click the blue "Publish" button, then copy the link provided. You are now ready to create your customizable HTML table!
+												<div class="helpImage">
+													<span class="stepImage"><img src="images/tb_explainer_google_link.jpg"/></span>
+													<span class="helperImageLogo"><i class="fa fa-hand-o-up"></i></span>
+												</div>
+											</div>
+											<div class="clearAll"></div>
+										</div>
+									</div>
+								</div> -->
+							</div>
+							<div class="container createTool hiddenContainer" data-role="create_tool_csv">
+								<div class="inputFieldWrapper inputFieldDataSource">
+									<div class="dragDropData transitionAll" data-role="drag_drop_data_csv" id="drag_drop_data_csv">
+										<div class="dragDropDataText" contenteditable="true"></div>
+										<div class="dragDropInfo transitionAll">
+											<div class="dragDropIcon"><span><i class="fa fa-upload"></i></span></div>
+											<div class="dragDropText">Have a CSV file? Upload it here</div>
+											<div class="dragDropInstructions">Drag and drop your CSV file here, or <span class="buttonItem transitionAll importFile">choose your file<input type="file" id="import_file_select" class="hiddenContainer" style="display:none !important;"></span></div>
+											<div class="dragDropHelp">Need Help? Check out the <a href="wiki.html">wiki</a></div>
+										</div>
+									</div>
+									<div class="switchCSV hiddenContainer"><span class="highlight"><span class="buttonItem transitionAll changeCSV">Use a different file</span></span></div>
+									<div class="buttonItem transitionAll csvCreate csvCreateActive hiddenContainer">Create Table</div>
+								</div>
+							</div>
+							<div class="container createTool hiddenContainer" data-role="create_tool_update">
+								<div class="inputFieldWrapper inputFieldDataSource">
+									<div class="dragDropData transitionAll" data-role="drag_drop_data_update" id="drag_drop_data_update">
+										<div class="dragDropInfo transitionAll">
+											<div class="dragDropIcon"><span><i class="fa fa-upload"></i></span></div>
+											<div class="dragDropText">Have an existing project? Upload the <span class="highlight">TableBuilder_config.json</span> here</div>
+											<div class="dragDropInstructions">Drag and drop your file here</div>
+											<div class="dragDropHelp">Need Help? Check out the <a href="wiki.html">wiki</a></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container containerUpdateModal hiddenContainer">
+				<div class="modalWrapper">
+					<div class="container containerInner">
+						<div class="container containerTitle containerModalTitle">
+							Welcome Back!
+						</div>
+						<div class="container containerModalSubhead">
+							Just one question before we get started. Do you want to use your existing data?
+						</div>
+						<div class="container containerModalOptions">
+							<div class="modalRadioOption">
+								<input id="update_modal_existing_true" type="radio" checked name="update_modal_existing" value="true" />Yes, Use my existing data
+							</div>
+							<div class="modalRadioOption">
+								<input id="update_modal_existing_false" type="radio" name="update_modal_existing" value="false" />No, I want to change my data
+							</div>
+							<div class="buttonItem transitionAll updateCreate updateCreateActive">Create Table</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="transitionAll container containerSection containerSectionContent containerSectionContentEditor" data-role="code_wrapper">
+		<div class="container containerEditorWrapper hiddenContainer">	
+			<div class="container containerEditorButtons hiddenContainer" data-role="editor_buttons_table">
+				<div class="buttonItem transitionAll editorButton" data-role="text_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-font transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Text
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="structure_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-table transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Structure
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="header_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-sort-alpha-asc transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Header
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="interactive_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-hand-o-up transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Interactive
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="format_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-cog transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Formatting
+					</span>
+				</div>
+				<!-- <div class="buttonItem transitionAll editorButton" data-role="style_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-paint-brush transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Style
+					</span>
+				</div> -->
+				<div class="buttonItem transitionAll editorButton" data-role="save_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-floppy-o transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Save
+					</span>
+				</div>
+				<div class="clearAll"></div>
+			</div>
+			<div class="container containerEditorButtons hiddenContainer" data-role="editor_buttons_style">
+				<div class="buttonItem transitionAll editorButton" data-role="style_text_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-font transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Text
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="style_structure_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-table transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Structure
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="style_header_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-sort-alpha-asc transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Header
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="style_buttons_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-hand-o-up transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Buttons
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="style_rows_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-arrows-h transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Rows
+					</span>
+				</div>
+				<div class="buttonItem transitionAll editorButton" data-role="style_save_options">
+					<span class="editorButtonSymbol transitionAll">
+						<i class="fa fa-floppy-o transitionAll"></i>
+					</span>
+					<span class="editorButtonText transitionAll">
+						Save
+					</span>
+				</div>
+				<div class="clearAll"></div>
+			</div>
+		</div>
+		<div class="container containerToolWrapper">
+			<div class="container containerOptionsHolder hiddenContainer" data-role="options_holder_table">
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_text">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_text">
+							<span class="toolOptionUnitTitleText">Title/Source</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Insert title</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="title_title" type="text" value="Insert a title" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapper">
+										<div class="toolOptionOptionTitle">Insert text block</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputInput toolOptionInputBlock">
+										<div class="toolOptionField">
+											<textarea class="inputField transitionBackground inputFieldOption inputFieldTextField" id="title_subhead" type="textfield" style="resize: none" name="title_subhead_input">Insert text</textarea>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Insert data source</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="title_source" type="text" value="Insert data source" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven toolOptionChangeExtra toolOptionExtra_source">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Insert source link</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="title_source_link" type="text" value="Insert data source URL" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Insert table credit</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="title_credit" type="text" value="Insert a credit" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_structure">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_structure">
+							<span class="toolOptionUnitTitleText">Table Structure</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Responsive layout</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="table_responsive_true" type="radio" checked name="table_responsive" value="true" />Yes
+											<input id="table_responsive_false" type="radio" name="table_responsive" value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Searchable</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio toolOptionInputNarrow">
+										<div class="toolOptionField">
+											<input id="search_field_true" type="radio" checked name="search_field" value="true" />Yes
+											<input id="search_field_false" type="radio" name="search_field" value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven toolOption_search">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Search field text</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="search_field_text" type="text" value="Search table" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd toolOption_search">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Search button text</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="search_button_text" type="text" value="Search" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven toolOptionExtra_rows">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapper">
+										<div class="toolOptionOptionTitle">Visible rows options</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputInput toolOptionInputBlock">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectMultiple" id="number_rows" multiple name="rows_visible_options">
+												<option value="-1"><i>Hide Visible Row Options</i></option>
+												<option value="5">5</option>
+												<option value="10" selected>10</option>
+												<option value="15">15</option>
+												<option value="20">20</option>
+												<option value="25" selected>25</option>
+												<option value="50" selected>50</option>
+												<option value="100" selected>100</option>
+												<option value="1000000" selected>All</option>
+											</select>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_header">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_header">
+							<span class="toolOptionUnitTitleText">Header Options</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Fixed header</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="fixed_header_true" type="radio" checked name="fixed_header" value="true" />Yes
+											<input id="fixed_header_false" type="radio" name="fixed_header" value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Repeat header row</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="repeat_header_true" type="radio" name="repeat_header" value="true" />Yes
+											<input id="repeat_header_false" type="radio" checked name="repeat_header" value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd toolOptionChangeExtra toolOptionExtra_repeat">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Repeat header row</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="repeat_header_rows" type="text" value="Insert number" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Sortable columns</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="sortable_options_true" type="radio" checked name="sortable_options" value="true" />Yes
+											<input id="sortable_options_false" type="radio" name="sortable_options" value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Column Width</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect" id="tool_style_column_width" name="column_width_option">
+												<option value="">Select Column</option>
+											</select>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+									<div class="toolStyleWidthSliderWrapper toolOptionChangeExtra" id="tool_slider_wrapper">
+										<div class="toolSliderHolder" id="tool_slider_holder"></div>
+										<div class="slideWidthLabel slideWidthLabelFirst">0% <span>(Hidden)</span></div>
+										<div class="slideWidthLabel slideWidthLabelSecond">100%</div>
+										<div class="clearAll"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_format">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_format">
+							<span class="toolOptionUnitTitleText">Data Formatting</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Format all numbers</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="format_number_true" type="radio" checked name="format_number" value="true" />Yes
+											<input id="format_number_false" type="radio" name="format_number" value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven toolOptionChangeExtra toolOptionExtra_format">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapper">
+										<div class="toolOptionOptionTitle">Format columns</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputBlock">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectMultiple" id="format_column_number" multiple name="format_column_number_options"></select>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Zero out decimals</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio" id="tool_option_input_zero_decimals">
+										<div class="toolOptionField">
+											<input id="zero_out_true" type="radio" value="true" name="zero_out" />Yes
+											<input id="zero_out_false" type="radio" checked value="false" name="zero_out" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Decimal places</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect" id="decimal_places" name="decimals_select">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2" selected="selected">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Display blank data</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect" id="blank_data" name="blank_data">
+												<option value="-">-</option>
+												<option value="N/A">N/A</option>
+												<option value="" id="blank_data_empty"></option>
+											</select>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Date format</div>
+									</div>
+									<div class="toolOptionInput" id="tool_option_input_date">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="date_format" type="text" value="Choose a date format" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Time format</div>
+									</div>
+									<div class="toolOptionInput" id="tool_option_input_time">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="time_format" type="text" value="Choose a time format" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven toolOptionExtra_sort">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Column Data Types</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect" id="sort_type">
+												<option value="">Select Column</option>
+											</select>
+											<div class="clearAll"></div>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+									<div id="tool_dataType_wrapper" class="toolStyleWidthSliderWrapper toolOptionChangeExtra">
+										<div class="toolOptionChangeTitleInnerWrapperLeft">
+											<div class="toolOptionOptionTitle toolOptionOptionTitleSelect"><i>Adjust data type</i></div>
+										</div>
+										<div class="toolOptionInput">
+											<div class="toolOptionField">
+												<select class="toolOptionsSelect" id="sort_type_options">
+													<option value="">Unknown</option>
+													<option value="string">String</option>
+													<option value="number">Number</option>
+													<option value="date">Date</option>
+													<option value="time">Time</option>
+													<option value="html">HTML</option> 
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_interactive">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_interactive">
+							<span class="toolOptionUnitTitleText">Interactive Options</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Visible rows</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="rows_visible" type="text" value="Visible rows" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Sorted Column</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect" id="sort_column">
+												<option value="null">No column</option>
+											</select>
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Default Sort order</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="sort_order_asc" type="radio" name="sort_order" value="asc" />Asc
+											<input id="sort_order_desc" type="radio" name="sort_order" checked value="desc" />Desc
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Index column</div>
+									</div>
+									<div class="toolOptionInput toolOptionRadio">
+										<div class="toolOptionField">
+											<input id="ranking_true" type="radio" name="ranking" value="true" />Yes
+											<input id="ranking_false" type="radio" name="ranking" checked value="false" />No
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven toolOptionExtra_local">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleTop">Refresh Data</div>
+									</div>
+									<div class="toolOptionInput" id="tool_option_input_refresh_data">
+										<div class="toolOptionField">
+											<input class="inputField transitionBackground inputFieldOption" id="refresh_data_min" type="text" value="Insert a number of minutes" />
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_save">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_save">
+							<span class="toolOptionUnitTitleText">Save Table</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="buttonItem transitionAll toolSave containerSplit50 containerSplitLeft" data-role="tool_save_download">
+								Download
+							</div>
+							<div class="buttonItem transitionAll toolSave containerSplit50 containerSplitRight" data-role="tool_save_embed">
+								Source Code
+							</div>
+							<div class="clearAll"></div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="container containerOptionsHolder hiddenContainer" data-role="options_holder_style">
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_style_text">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_text">
+							<span class="toolOptionUnitTitleText">Table Fonts</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="optionSelector">
+								<div id="style_option_text" class="buttonItem transitionAll dropDownOption">
+									<div class="dropDownText transitionAll">Select text option</div>
+									<ul id="menu_dropdown_text" class="dropDownMenu transitionAll">
+											<li class="dropDownItem transitionAll dropDownItemActive " data-value="table">Global</li>
+											<li class="dropDownItem transitionAll" data-value="links">Links</li>
+											<li class="dropDownItem transitionAll dropDownItemNotActive" data-value="title">Title</li>
+											<li class="dropDownItem transitionAll dropDownItemNotActive" data-value="copyblock">Copyblock</li>
+											<li class="dropDownItem transitionAll dropDownItemNotActive" data-value="source">Source</li>
+										</ul>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionSubCat toolOptionTextStyle_table toolOptionSubCatActive">
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Font family</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_family" name="table_font_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Font Size</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_size" name="table_font_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13'>13px</option>
+												<option value='14' selected>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Font Color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_table_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_333333"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_table_font_color_input"  value="333333"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							</div>
+							<div class="toolOptionSubCat toolOptionTextStyle_links toolOptionChangeExtra">				
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Link Font family</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_link_font_family" name="table_link_font_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Link Font Color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_table_link_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_337ab7"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_table_link_font_color_input" value="337ab7"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Link Font Hover Color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_table_link_font_color_hover">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_286090"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_table_link_font_color_input_hover" value="286090" />
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							</div>
+							<div class="toolOptionSubCat toolOptionTextStyle_title toolOptionChangeExtra">				
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Title Font family</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_title_font" name="title_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Title Font Size</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_title_size" name="table_font_title_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13'>13px</option>
+												<option value='14'>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='30' selected>30px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Font Color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_title_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_333333"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_title_color_input"  value="333333"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							</div>
+							<div class="toolOptionSubCat toolOptionTextStyle_copyblock toolOptionChangeExtra">
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Copyblock Font family</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_copyblock_font" name="copyblock_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Copyblock Font Size</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_copyblock_size" name="table_font_copyblock_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13'>13px</option>
+												<option value='14'>14px</option>
+												<option value='15' selected>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='30'>30px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Copyblock Font Color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_copyblock_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_444444"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_copyblock_color_input"  value="444444"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							</div>
+							<div class="toolOptionSubCat toolOptionTextStyle_source toolOptionChangeExtra">
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Source Font family</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_source_font" name="source_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Source Font Size</div>
+									</div>
+									<div class="toolOptionInput toolOptionSelect">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_source_size" name="table_font_source_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12' selected>12px</option>
+												<option value='13'>13px</option>
+												<option value='14'>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='30'>30px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+								<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Source Font Color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_source_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_777777"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_source_color_input"  value="777777"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_style_structure">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_structure">
+							<span class="toolOptionUnitTitleText">Search Bar</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Search bar font family</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputNarrow">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_search_font" name="search_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Search bar font sizen</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputNarrow">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_search_size" name="table_font_search_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13'>13px</option>
+												<option value='14' selected>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="contentTitle toolTitle toolOptionOptionTitle">Search bar font color</div>
+										<div class="clearAll"></div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_search_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_444444"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_search_font_color_input" value="444444"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="contentTitle toolTitle toolOptionOptionTitle">Search bar background color</div>
+										<div class="clearAll"></div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_search_background_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_f8f8f8"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_search_background_color_input" value="f8f8f8"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_style_header">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_header">
+							<span class="toolOptionUnitTitleText">Table Columns</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Header font family</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_column_font" name="column_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Header font size</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_column_size" name="table_font_column_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13'>13px</option>
+												<option value='14' selected>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Header font color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_column_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_444444"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_column_font_color_input"  value="444444"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">header arrow color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_column_arrow_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_444444"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_column_arrow_color_input"  value="444444"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Header background color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_headers_background_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_FFFFFF"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_header_background_color_input" value="FFFFFF"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">header border color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_column_border_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_CCCCCC"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_column_border_color_input"  value="CCCCCC"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Header border width</div>
+									</div>
+									<div class="toolOptionInput toolOptionInputNarrow">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_column_border_width" name="column_border_width">
+												<option value='0'>None</option>
+												<option value='1'>1px</option>
+												<option value='2' selected>2px</option>
+												<option value='3'>3px</option>
+												<option value='4'>4px</option>
+												<option value='5'>5px</option>
+												<option value='6'>6px</option>
+												<option value='7'>7px</option>
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='15'>15px</option>
+												<option value='20'>20px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_style_rows">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_format">
+							<span class="toolOptionUnitTitleText">Table Rows</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Row font family</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_rows_font" name="rows_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Row font size</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_rows_size" name="table_font_rows_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13' selected>13px</option>
+												<option value='14'>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Even row font color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_rows_even_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_444444"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_rows_even_font_color_input"  value="444444"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Even row background color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_rows_even_background_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_f9f9f9"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_rows_even_background_color_input"  value="f9f9f9"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Even row border color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_rows_even_border_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_CCCCCC"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_rows_even_border_color_input"  value="cccccc"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Odd row font color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_rows_odd_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_444444"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_rows_odd_font_color_input"  value="444444"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Odd row background color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_rows_odd_background_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_FFFFFF"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_rows_odd_background_color_input"  value="FFFFFF"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_style_buttons">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_interactive">
+							<span class="toolOptionUnitTitleText">Table Buttons</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Button font family</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_button_font" name="button_fonts_family">
+												<option value='Arial'>Arial</option>
+												<option value='"Courier New"'>Courier New</option>
+												<option value='Georgia'>Georgia</option>
+												<option value='"Helvetica Neue"' selected>Helvetica Neue</option>
+												<option value='Tahoma'>Tahoma</option>
+												<option value='"Times New Roman"'>Times New Roman</option>
+												<option value='"Trebuchet MS"'>Trebuchet MS</option>
+												<option value='Verdana'>Verdana</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle toolOptionOptionTitleSelect">Button font size</div>
+									</div>
+									<div class="toolOptionInput">
+										<div class="toolOptionField">
+											<select class="toolOptionsSelect toolOptionsSelectStyle" id="tool_style_table_font_button_size" name="table_font_button_size">
+												<option value='8'>8px</option>
+												<option value='9'>9px</option>
+												<option value='10'>10px</option>
+												<option value='11'>11px</option>
+												<option value='12'>12px</option>
+												<option value='13'>13px</option>
+												<option value='14' selected>14px</option>
+												<option value='15'>15px</option>
+												<option value='16'>16px</option>
+												<option value='20'>20px</option>
+												<option value='24'>24px</option>
+												<option value='36'>36px</option>
+												<option value='48'>48px</option>
+											</select> 
+										</div>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft">
+										<div class="toolOptionOptionTitle">Button font color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_button_font_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_FFFFFF"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_button_font_color_input" value="ffffff"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Button background color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_button_background_color">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_337ab7"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_button_background_color_input" value="337ab7"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeEven">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Button background hover color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_button_background_color_hover">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_286090"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_button_background_color_input_hover" value="286090"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+							<div class="toolOptionChange toolOptionChangeOdd">
+								<div class="toolOptionChangeTitleWrapper">
+									<div class="toolOptionChangeTitleInnerWrapperLeft toolOptionChangeTitleInnerWrapperLeftWide">
+										<div class="toolOptionOptionTitle">Button background inactive color</div>
+									</div>
+									<div class="toolStyleChoice toolStyleChoiceColorSelector" id="tool_style_choice_button_background_color_inactive">
+										<div class="toolStyleChoiceColor buttonItem transitionBackground toolStyleChoiceColor_bbbbbb"></div>
+										<input class="toolStyleChoiceColorInput" id="tool_style_choice_button_background_color_input_inactive" value="bbbbbb"/>
+									</div>
+									<div class="clearAll"></div>
+								</div>
+							</div>
+						</div>
+						<div class="clearAll"></div>
+					</div>
+				</div>
+				<div class="toolOptionsUnitWrapper toolOptionsUnitHidden transitionHeight" data-role="tool_options_unit_wrapper_style_save">
+					<div class="toolOptionsUnitInnerWrapper">
+						<div class="toolOptionUnitTitle" data-role="tool_option_unit_title_save">
+							<span class="toolOptionUnitTitleText">Save Table</span>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+						</div>
+						<div class="toolOptionOptions">
+							<div class="buttonItem transitionAll toolSave containerSplit50 containerSplitLeft" data-role="tool_save_download">
+								Download
+							</div>
+							<div class="buttonItem transitionAll toolSave containerSplit50 containerSplitRight" data-role="tool_save_embed">
+								Source Code
+							</div>
+							<div class="clearAll"></div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="container containerTheTool">
+				<div id="the_table_wrapper"></div>
+			</div>
+			<div class="container containerSaveModal hiddenContainer">
+				<div class="modalWrapper">
+					<div class="container containerInner">
+						<div class="modalTabWrapper">
+							<div class="buttonItem transitionAll modalTab modalTabActive" data-role="save_tab_embed">Embed Code</div>
+							<div class="buttonItem transitionAll modalTab" data-role="save_tab_javascript">JavaScript</div>
+							<div class="buttonItem transitionAll modalTab" data-role="save_tab_style">Custom Styles</div>
+							<span class="toolOptionUnitTitleClose buttonItem transitionAll"><i class="fa fa-times-circle"></i></span>
+							<div class="clearAll"></div>
+						</div>
+						<div class="modalInputWrapper">
+							<textarea class="inputField inputTextField inputFieldSave" data-role="embed_output" id="embed_output" contenteditable="true" readonly="" style="resize: none"></textarea>
+							<textarea class="inputField inputTextField inputFieldSave hiddenContainer" data-role="javascript_output" id="javascript_output" contenteditable="true" readonly="" style="resize: none"></textarea>
+							<textarea class="inputField inputTextField inputFieldSave hiddenContainer" data-role="style_output" id="style_output" contenteditable="true" readonly="" style="resize: none"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container containerPreloaderModal hiddenContainer">
+				<div class="modalWrapper">
+					<div class="container containerInner">
+						<div class="tableSorterPreloaderWrapper">
+							<div class="tableSorterPreloaderSpinnerText">Preparing download...</div>
+							<div class="tableSorterPreloaderSpinner"></div>
+						</div>
+						<div class="container containerDownloadProgress">
+							<ul class="listExplainer"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearAll"></div>
+	</section>
+	<section class="transitionAll container containerSection containerSectionContent" data-role="help_wrapper">
+		<div class="container containerHomeWrapper containerInputDataWrapper">
+			<div class="container containerTitleWrapper">
+				<div class="pageTitle pageTitleSmaller">F.A.Q.</div>
+				<div class="pageSubhead pageSubheadSmaller">Find the answers to some of the frequenty asked questions about TableBuilder. <br/>Need more help? Check out the full <a href="wiki.html" target="_blank">wiki</a></div>
+				<div class="clearAll"></div>
+			</div>
+			<div class="containerDescriptionWrapper">
+				<div class="containerInner">
+					<div class="container containerDataConverter">
+						<div class="container containerFAQ transitionAll containerFAQActive">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">What browsers does TableBuilder support?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									TableBuilder supports all modern browsers. That includes Chrome, Firefox, Safari, Opera and Internet Explorer 9+. <br/>
+									<i>(TableBuilder will work on IE8 if you include respond.js on your site and put all the CSS inside the < head > tags above the respond.js script. For more information please see <a href="https://github.com/scottjehl/Respond">here</a>)</i>
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Will this work on a responsive site?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									Yes, TableBuilder is designed to work on all responsive websites. The table optimizes the display to fit smaller screen sizes. Alternatively, you can set the table not to be responsive in the "<i>Table Structure</i>" options and the display won't change with the the browser regardless of screen size.
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Where can I use TableBuilder? Is it free?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									TableBuilder, licensed under an <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>, is a free and open source project. So feel free to use it anywhere you want. 
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">What kind of data can I use?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									You can use either a Google Spreadsheet or a CSV file. The Google Spreadsheet is the preferred data source because any updates you make on the Spreadsheet will be automatically updated in the table. Just make sure you have published the Spreadsheet. 
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">My Google Spreadsheet doesn't work</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									Make sure you use the link provided after clicking the "Publish to the web" button in the "File" menu on your spreadsheet and not the URL in the browser. For more detailed instructions, please see the <a href="/wiki.html" target="_blank">wiki</a>.
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Can I change the styles?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									Of course, you can change any number of styles using the <i>Theme Roller</i>. Or if you know CSS, simply write your own styles to overwrite the default TableBuilder styles.
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">The table isn't sorting a column correctly</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									Depending on the data, some browsers think numbers are dates. No problem, in the "<i>Formatting</i>" options, you can specifically declare the data type of every column or just the troubled column.
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Why do all the numbers have commas in them?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									By default, TableBuilder displays large numbers with commas every three decimal places. If you don't want any numbers formated, or just certain columns, you can adjust this option in the "<i>Formatting</i>" options.
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Can I include links in the table?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									Of course, URLs will be turned into links automatically. As will email address and twitter handles. 
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Can I request more options?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									Sure, new request or bug reports can be made on <a href="https://github.com/robkandel/tablebuilder/issues">GitHub</a>.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<div class="footerInner">
+					Created by Rob Kandel <span>&nbsp;|&nbsp;</span> <a href="https://github.com/robkandel/tablebuilder" target="_blank"><i class="fa fa-github"></i> Fork this project on Github</a>
+				</div>
+			</footer>
+		</div>
+	</section>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			dataviz.home.init();		
+		});
+	</script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63018621-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

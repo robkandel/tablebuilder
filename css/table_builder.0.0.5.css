@@ -1,0 +1,1018 @@
+/*//////////////////////////////////////////////////||
+// ROB KANDEL 										||
+// kandelrob@gmail.com								||
+// 													||
+// created 04.02.15	| updated 04.14.15				||
+// table_builder.css								||
+// version 0.0.5									||
+////////////////////////////////////////////////////*/
+
+.tableBuilderWrapper {
+    position: relative;
+    margin: 10px 10px 20px;
+    color: #333;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    clear: both;
+}
+
+.tableBuilderLegacy {
+    display: none;
+    visibility: hidden;
+}
+
+.tableBuilderWrapper * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+}
+
+.tableBuilderWrapper *::after, .tableBuilderWrapper *::before {
+    box-sizing: border-box;
+}
+
+.tableBuilderWrapper a, .tableBuilderWrapper a:active, .tableBuilderWrapper a:hover, .tableBuilderWrapper a:visited {
+    text-decoration: none;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #337ab7;
+}
+
+.tableBuilderWrapper a:hover {
+    text-decoration: underline;
+    color: #286090;
+}
+
+.tableBuilderWrapper .buttonItem {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #337ab7;
+    border: 1px solid #2e6da4;
+    color: #fff;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    border-radius: 4px;
+}
+
+.tableBuilderWrapper .buttonItem:hover {
+    background-color: #286090;
+    border: 1px solid #204d74;
+}
+
+.tableBuilderWrapper .transitionBackground {
+    -webkit-transition: background-color 300ms ease-in-out;
+    -moz-transition: background-color 300ms ease-in-out;
+    -o-transition: background-color 300ms ease-in-out;
+    -ms-transition: background-color 300ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
+}
+
+.tableBuilderWrapper .transitionAll {
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    -webkit-font-smoothing: antialiased;
+}
+
+.tableBuilderWrapper .clearAll {
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+.tableBuilderTitleWrapper {
+    position: relative;
+    font-size: 30px;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.tableBuilderSubheadWrapper {
+    position: relative;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-style: italic;
+    color: #444;
+}
+
+.tableBuilderSearchBar {
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.tableBuilderSearchBarInner {
+    position: relative;
+    padding: 10px;
+    line-height: 30px;
+}
+
+.tableBuilderSearchInput {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.tableBuilderWrapperNotResponsive .tableBuilderSearchInput {
+    float: left;
+    margin-bottom: 0;
+}
+
+.tableBuilderSearchView {
+    position: relative;
+    margin-bottom: 0px;
+    float: right;
+}
+
+.tableBuilderWrapperNotResponsive .tableBuilderSearchView {
+    float: right;
+    margin-bottom: 0;
+}
+
+.tableBuilderSearchViewHidden {
+    display: none;
+}
+
+.tableBuilderSearchInputWrapper {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    width: calc(100% - 118px);
+}
+
+.tableBuilderInputField {
+    position: relative;
+    width: auto;
+    vertical-align: middle;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0, .075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0, .075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0, .075);
+    width: 100%;
+}
+
+.tableBuilderInputField:focus {
+    border: 1px solid #66afe9;
+    -webskit-box-shadow: 0 1px 1px rgba(0,0,0, .075) inset,0 0 8px rgba(102,175,233, .6);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0, .075) inset,0 0 8px rgba(102,175,233, .6);
+    box-shadow: 0 1px 1px rgba(0,0,0, .075) inset,0 0 8px rgba(102,175,233, .6);
+}
+
+.tableBuilderSearchInput .tableBuilderInputField {
+    border-radius: 4px 0 0 4px;
+}
+
+.tableBuilderSearchInput .tableBuilderSearchInputText {
+    border-radius: 0 4px 4px 0;
+    padding: 6px 0;
+    width: 118px;
+}
+
+.tableBuilderWrapper .tableBuilderCloseBtn {
+    position: absolute;
+    z-index: 99;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 25px;
+    width: 5px;
+    display: none;
+}
+
+.tableBuilderWrapper .tableBuilderCloseBtnActive {
+    display: block;
+}
+
+.tableBuilderWrapper .tableBuilderCloseBtn:hover {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.tableBuilderWrapper .ui-icon {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    color: #337ab7;
+    font: 14px/100% arial,sans-serif;
+    padding: 0px 3px;
+    position: absolute;
+    right: 2.5px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    top: 3px;
+    background-color: #fff;
+}
+
+.tableBuilderWrapper .ui-icon:after {
+    content: '✖';
+}
+
+.tableBuilderWrapper .tableBuilderCloseBtn:hover .ui-icon {
+    background-color: #ddd;
+}
+
+.tableBuilderDropDown {
+    position: relative;
+}
+
+.tableBuilderSearchRowButtonText {
+    position: relative;
+    display: inline-block;
+}
+
+.tableBuilderCarrotDown {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 6px;
+    vertical-align: middle;
+    border-top: 4px solid #fff;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.tableBuilderDropDownList {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    min-width: 160px;
+    padding: 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0, .15);
+    border-radius: 4px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0, .175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0, .175);
+    box-shadow: 0 6px 12px rgba(0,0,0, .175);
+    display: none;
+}
+
+.tableBuilderDropDownListActive {
+    display: block;
+}
+
+.tableBuilderSearchSortList {
+    left: 0;
+    right: auto;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.tableBuilderWrapper .tableBuilderDropDownListItem {
+    position: relative;
+    display: block;
+    background-color: #fff;
+    border: none;
+    color: #444;
+    border-top: 1px solid #e5e5e5;
+    border-radius: 0;
+}
+
+.tableBuilderWrapper .tableBuilderDropDownListItem:hover {
+    background-color: #f5f5f5;
+    border: none;
+    border-top: 1px solid #e5e5e5;
+}
+
+.tableBuilderWrapper .tableBuilderDropDownListItem:first-child, .tableBuilderWrapper .tableBuilderDropDownListItem:first-child:hover {
+    border-top: none;
+}
+
+.tableBuilderWrapper .tableBuilderDropDownListItemActive {
+    background-color: #f5f5f5;
+    font-weight: 500;
+}
+
+.tableBuilderSortWrapper {
+    position: relative;
+    float: left;
+}
+
+.tableBuilderSortWrapperHidden, .tableBuilderWrapperNotResponsive .tableBuilderSortWrapper {
+    display: none;
+}
+
+.tableBuilderTableWrapper {
+    position: relative;
+    margin: 0px 0 20px;
+}
+
+.tableBuilderPreloaderWrapper {
+    position: absolute;
+    background-color: #fff;
+    background-color: rgba(255,255,255, .95);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    min-height: 200px;
+}
+
+.tableBuilderPreloaderWrapper .tableBuilderPreloaderSpinnerWrapper {
+    position: relative;
+    width: 220px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0, .1);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0, .1);
+    box-shadow: 0 1px 5px rgba(0,0,0, .1);
+    background-color: #fff;
+    margin: auto;
+    top: 40%;
+}
+
+.tableBuilderPreloaderWrapper .tableBuilderPreloaderSpinner {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background-image: url(images/table_builder_preloader.gif);
+    background-repeat: no-repeat;
+    margin: auto;
+    background-size: 35px 35px;
+}
+
+.tableBuilderPreloaderWrapper .tableBuilderPreloaderSpinnerText {
+    position: relative;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #999;
+}
+
+.tableBuilderBody, .tableBuilderBodyWrapper, .tableBuilderHeader, .tableBuilderHeaderWrapper, .tableBuilderTableBody, .tableBuilderTableHeader {
+    position: relative;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+}
+
+.tableBuilderTableHeaderWrapper, .tableBuilderTableBodyWrapper {
+    position: relative;
+}
+
+.tableBuilderHeader {
+    display: table;
+    background-color: #fff;
+}
+
+.tableBuilderTableHeader {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: none;
+}
+
+.tableBuilderHeaderNotResponsive {
+    display: block;
+}
+
+.tableBuilderHeaderWrapper {
+    width: auto;
+    margin-bottom: 2px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+.tableBuilderHeaderWrapperFixed {
+    position: fixed;
+    background-color: #fff;
+    z-index: 999;
+    top: 0;
+    padding: 10px 0 0;
+}
+
+.tableBuilderHeaderWrapperFixed::after {
+    content: "";
+    width: calc(100% - 11px);
+    height: 1px;
+    display: block;
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 7px 2px #999;
+    -moz-box-shadow: 0 0 7px 2px #999;
+    box-shadow: 0 0 7px 2px #999;
+}
+
+.tableBuilderHeaderText {
+    text-align: left;
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    color: #444;
+    text-transform: capitalize;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tableBuilderHeaderTextValue {
+    padding: 6px 10px;
+}
+
+.tableBuilderHeaderWrapperFixed .tableBuilderHeaderTextValue {
+    padding-bottom: 10px;
+}
+
+.tableBuilderHeaderSortable {
+    cursor: pointer;
+    color: #444;
+}
+
+.tableBuilderHeaderSortable:hover, .tableBuilderHeaderSortableActive {
+    color: #000;
+}
+
+.tableBuilderHeaderSortable::before {
+    position: absolute;
+    content: '';
+    z-index: 1;
+    top: 54%;
+    left: 0;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-top: 4px solid #444;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.tableBuilderHeaderSortable::after {
+    position: absolute;
+    content: '';
+    z-index: 1;
+    top: 54%;
+    margin-top: -6px;
+    left: 0;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-bottom: 4px solid #444;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.tableBuilderHeaderSortableDesc::after {
+    border-bottom: 4px solid transparent;
+}
+
+.tableBuilderHeaderSortableDesc::before {
+    top: 50%;
+}
+
+.tableBuilderHeaderSortableAsc::before {
+    border-top: 4px solid transparent;
+}
+
+.tableBuilderHeaderSortableAsc::after {
+    border-top: 4px solid transparent;
+    top: 50%;
+}
+
+.tableBuilderHeaderWrapperFixed .tableBuilderHeaderSortable::before {
+    top: 50%;
+}
+
+.tableBuilderHeaderWrapperFixed .tableBuilderHeaderSortable::after {
+    top: 50%;
+}
+
+.tableBuilderHeaderWrapperFixed .tableBuilderHeaderSortableDesc::before {
+    top: 44%;
+}
+
+.tableBuilderHeaderWrapperFixed .tableBuilderHeaderSortableAsc::after {
+    top: 44%;
+}
+
+.tableBuilderSourceWrapper {
+    position: relative;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.tableBuilderCreditText, .tableBuilderSourceText {
+    position: relative;
+    font-size: 12px;
+    color: #777;
+}
+
+.tableBuilderCreditLabel, .tableBuilderSourceLink {
+    position: relative;
+    text-transform: uppercase;
+}
+
+.tableSortRow {
+    position: relative;
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.tableSortEven {
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.tableBuilderResponsive .tableSortEven {
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
+}
+
+@-moz-document url-prefix() {
+    .tableSortEven {
+        border-bottom: 2px solid #ddd;
+    }
+
+    .tableBuilderResponsive .tableSortEven {
+        border-bottom: 5px solid #ddd;
+    };
+}
+
+.tableRowInfo {
+    text-align: left;
+    position: relative;
+    font-size: 13px;
+    font-weight: 300;
+    color: #444;
+    padding: 0;
+    vertical-align: middle;
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+}
+
+.tableBuilderNotResponsive .tableBuilderHeaderText, .tableBuilderBodyNotResponsive .tableRowInfo {
+    width: 100%;
+}
+
+.tableSortRow .tableRowInfo:first-child {
+    border-top: none;
+}
+
+.tableRowInfoValue {
+    padding: 6px 10px;
+}
+
+.tableBuilderResponsive .tableRowInfoValue {
+    position: relative;
+    float: left;
+    width: 70%;
+}
+
+.tableBuilderResponsive .tableRowInfoColumn {
+    color: #444;
+    display: table-cell;
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 6px 10px;
+    text-align: left;
+    text-transform: capitalize;
+    vertical-align: middle;
+    width: 30%;
+    word-wrap: normal;
+    position: relative;
+}
+
+.tableBuilderBodyNotResponsive .tableRowInfoColumn {
+    display: none;
+}
+
+.tableSortNoRows {
+    color: #777;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    margin: 40px 0;
+    position: relative;
+    text-align: center;
+}
+
+.tableBuilderResponsive .tableSortRow .tableRowInfo, .tableBuilderResponsive .tableBuilderHeaderText {
+    width: 100%;
+    display: table-cell;
+    position: relative;
+    float: left;
+    clear: both;
+}
+
+.tableBuilderWrapperNotResponsive .tableRowInfoValue {
+    width: 100%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_2, .tableBuilderWrapperNotResponsive .tableBuilderHeader_2 {
+    width: 50%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_3, .tableBuilderWrapperNotResponsive .tableBuilderHeader_3 {
+    width: 33.33333333333333%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_4, .tableBuilderWrapperNotResponsive .tableBuilderHeader_4 {
+    width: 25%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_5, .tableBuilderWrapperNotResponsive .tableBuilderHeader_5 {
+    width: 20%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_6, .tableBuilderWrapperNotResponsive .tableBuilderHeader_6 {
+    width: 16.6666666666667%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_7, .tableBuilderWrapperNotResponsive .tableBuilderHeader_7 {
+    width: 14.285714285714286%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_8, .tableBuilderWrapperNotResponsive .tableBuilderHeader_8 {
+    width: 12.5%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_9, .tableBuilderWrapperNotResponsive .tableBuilderHeader_9 {
+    width: 11.11111111111111%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_10, .tableBuilderWrapperNotResponsive .tableBuilderHeader_10 {
+    width: 10%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_11, .tableBuilderWrapperNotResponsive .tableBuilderHeader_11 {
+    width: 9.090909090909091%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_12, .tableBuilderWrapperNotResponsive .tableBuilderHeader_12 {
+    width: 8.333333333333333%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_13, .tableBuilderWrapperNotResponsive .tableBuilderHeader_13 {
+    width: 7.692307692307692%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_14, .tableBuilderWrapperNotResponsive .tableBuilderHeader_14 {
+    width: 7.142857142857143%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_15, .tableBuilderWrapperNotResponsive .tableBuilderHeader_15 {
+    width: 6.666666666666667%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_16, .tableBuilderWrapperNotResponsive .tableBuilderHeader_16 {
+    width: 6.25%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_17, .tableBuilderWrapperNotResponsive .tableBuilderHeader_17 {
+    width: 5.882352941176471%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_18, .tableBuilderWrapperNotResponsive .tableBuilderHeader_18 {
+    width: 5.555555555555556%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_19, .tableBuilderWrapperNotResponsive .tableBuilderHeader_19 {
+    width: 5.263157894736842%;
+}
+
+.tableBuilderWrapperNotResponsive .tableSortRow .tableRowInfo_20, .tableBuilderWrapperNotResponsive .tableBuilderHeader_20 {
+    width: 5%;
+}
+
+.tableBuilderMoreButtonsInnerWrapper, .tableBuilderMoreButtonsWrapper {
+    position: relative;
+}
+
+.tableBuilderMoreButton, .tableBuilderNumberButtonWrapper, .tableBuilderNumberInputWrapper {
+    position: relative;
+    float: right;
+}
+
+.tableBuilderNumberButtonWrapper {
+    display: none;
+}
+
+.tableBuilderWrapperNotResponsive .tableBuilderNumberButtonWrapper {
+    display: inline-block;
+}
+
+.tableBuilderWrapperNotResponsive .tableBuilderNumberButtonWrapperLarge {
+    display: none;
+}
+
+.tableBuilderWrapper .tableBuilderNextBTN {
+    padding-right: 18px;
+    border-radius: 0 4px 4px 0;
+}
+
+.tableBuilderWrapper .tableBuilderNextBTN::after {
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #fff;
+    border-top: 6px solid transparent;
+    content: "";
+    right: 6px;
+    position: absolute;
+    top: 11px;
+    z-index: 1;
+}
+
+.tableBuilderWrapper .tableBuilderPrevBTN {
+    padding-left: 18px;
+    border-radius: 4px 0 0 4px;
+}
+
+.tableBuilderWrapper .tableBuilderPrevBTN::after {
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid #fff;
+    border-top: 6px solid transparent;
+    content: "";
+    left: 6px;
+    position: absolute;
+    top: 11px;
+    z-index: 1;
+}
+
+.tableBuilderWrapper .tableBuilderNotActiveBTN, .tableBuilderWrapper .tableBuilderNotActiveBTN:hover {
+    background-color: #bbb;
+    border: 1px solid #ccc;
+    cursor: default;
+}
+
+.tableBuilderNumberInputField {
+    border-radius: 0;
+    max-width: 75px;
+    text-align: center;
+}
+
+.tableBuilderWrapperNotResponsive .tableBuilderNumberInputFieldSmall {
+    display: none;
+}
+
+.tableBuilderNumberButtonInner {
+    position: relative;
+}
+
+.tableBuilderNumber {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.tableBuilderNumber:hover, .tableBuilderNumberActive {
+    background-color: #eee;
+}
+
+.tableBuilderNumberActive, .tableBuilderNumberActive:hover {
+    color: #286090;
+}
+
+.tableRowRepeatedHeader {
+    display: none;
+}
+
+.tableRowInfoDataActive .tableRowInfoValue {
+    font-weight: 700;
+}
+
+.tableBuilderHeaderHidden, .tableBuilderBodyNotResponsive .tableSortRow .tableRowInfoDataHidden, .tableBuilderResponsive .tableSortRow .tableRowInfoDataHidden {
+    display: none;
+}
+
+.tableRowInfo::before {
+    position: absolute;
+    content: '';
+    top: 1px;
+    left: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background-color: transparent;
+    z-index: 0;
+}
+
+.tableBuilderWrapperNotResponsive .tableBuilderSearchInputHidden, .tableBuilderSearchAllHidden {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .tableBuilderResponsive .tableSortRow .tableRowInfo, .tableBuilderResponsive .tableBuilderHeaderText {
+        width: 100%!important;
+        display: block;
+    }
+
+    .tableBuilderHeaderHidden, .tableBuilderBodyNotResponsive .tableSortRow .tableRowInfoDataHidden, .tableBuilderResponsive .tableSortRow .tableRowInfoDataHidden {
+        display: none;
+    }
+}
+
+@media screen and (min-width:481px) {
+    .tableBuilderNumberInputField {
+        max-width: 75px;
+    }
+}
+
+@media screen and (min-width:769px) {
+    .clearLeft {
+        clear: both;
+    }
+
+    .tableBuilderSearchInput {
+        float: left;
+        margin-bottom: 0;
+    }
+
+    .tableBuilderNumberInputFieldSmall, .tableBuilderResponsive .tableRowInfoColumn, .tableBuilderSearchBarSortOnly, .tableBuilderSortWrapper {
+        display: none;
+    }
+
+    .tableBuilderTableHeader {
+        display: block;
+    }
+
+    .tableBuilderNumberButtonWrapper {
+        display: inline-block;
+    }
+
+    .tableBuilderNumberButtonWrapperLarge {
+        display: none;
+    }
+
+    .tableBuilderSearchInput .tableBuilderSearchInputText {
+        width: auto;
+        padding: 6px 12px;
+    }
+
+    .tableBuilderSearchInputWrapper {
+        width: auto;
+    }
+
+    .tableRowRepeatedHeader {
+        border-top: 2px solid #ccc;
+        border-bottom: 2px solid #ccc;
+        display: table-row;
+    }
+
+    .tableRowRepeatedHeader .tableBuilderHeaderText {
+        padding: 10px 0;
+    }
+
+    .tableRowInfo {
+        border: none;
+    }
+
+    .tableRowInfoValue {
+        width: auto;
+        float: none;
+        word-wrap: normal;
+    }
+
+    .tableBuilderResponsive .tableSortEven {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo, .tableBuilderResponsive .tableBuilderHeaderText {
+        float: none;
+        clear: none;
+    }
+
+    .tableBuilderResponsive .tableRowInfoValue {
+        width: 100%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_2, .tableBuilderResponsive .tableBuilderHeader_2 {
+        width: 50%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_3, .tableBuilderResponsive .tableBuilderHeader_3 {
+        width: 33.33333333333333%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_4, .tableBuilderResponsive .tableBuilderHeader_4 {
+        width: 25%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_5, .tableBuilderResponsive .tableBuilderHeader_5 {
+        width: 20%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_6, .tableBuilderResponsive .tableBuilderHeader_6 {
+        width: 16.6666666666667%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_7, .tableBuilderResponsive .tableBuilderHeader_7 {
+        width: 14.285714285714286%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_8, .tableBuilderResponsive .tableBuilderHeader_8 {
+        width: 12.5%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_9, .tableBuilderResponsive .tableBuilderHeader_9 {
+        width: 11.11111111111111%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_10, .tableBuilderResponsive .tableBuilderHeader_10 {
+        width: 10%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_11, .tableBuilderResponsive .tableBuilderHeader_11 {
+        width: 9.090909090909091%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_12, .tableBuilderResponsive .tableBuilderHeader_12 {
+        width: 8.333333333333333%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_13, .tableBuilderResponsive .tableBuilderHeader_13 {
+        width: 7.692307692307692%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_14, .tableBuilderResponsive .tableBuilderHeader_14 {
+        width: 7.142857142857143%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_15, .tableBuilderResponsive .tableBuilderHeader_15 {
+        width: 6.666666666666667%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_16, .tableBuilderResponsive .tableBuilderHeader_16 {
+        width: 6.25%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_17, .tableBuilderResponsive .tableBuilderHeader_17 {
+        width: 5.882352941176471%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_18, .tableBuilderResponsive .tableBuilderHeader_18 {
+        width: 5.555555555555556%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_19, .tableBuilderResponsive .tableBuilderHeader_19 {
+        width: 5.263157894736842%;
+    }
+
+    .tableBuilderResponsive .tableSortRow .tableRowInfo_20, .tableBuilderResponsive .tableBuilderHeader_20 {
+        width: 5%;
+    }
+
+    .tableBuilderTableHeader .tableBuilderHeaderHidden, .tableBuilderBodyNotResponsive .tableSortRow .tableRowInfoDataHidden, .tableBuilderResponsive .tableSortRow .tableRowInfoDataHidden {
+        display: none;
+    }
+
+    @-moz-document url-prefix() {
+        .tableBuilderResponsive .tableSortEven{
+        	border-bottom: 2px solid #ddd;
+    	}
+
+	    .tableRowRepeatedHeader {
+    	    border-bottom: 3px solid #ccc;
+    	}
+	}
+
+	.tableBuilderSearchInputHidden {
+    	display: none;
+	}
+}
