@@ -41,8 +41,8 @@
 <body class="bodyAbsolute">
 	<header class="headerWrapper transitionAll">
 		<hgroup class="headerInnerWrapper transitionAll">
-			<div class="headerLogo transitionAll">
-				<div class="headerTitle transitionAll">TableBuilder Generator</div>
+			<div class="headerLogo transitionAll" style="height: 3.14286em; overflow:hidden;">
+				<div class="headerTitle transitionAll">TableBuilder <span style="color: #aaa; font-style:italic; font-size: .7em">JS</span></div>
 				<div class="clearAll"></div>
 			</div>
 			<div class="optionWrapper transitionAll">
@@ -1797,6 +1797,16 @@
 							<div class="container containerFAQAnswer transitionAll">
 								<div class="containerInner">
 									Make sure you use the link provided after clicking the "Publish to the web" button in the "File" menu on your spreadsheet and not the URL in the browser. For more detailed instructions, please see the <a href="/wiki.html" target="_blank">wiki</a>.
+								</div>
+							</div>
+						</div>
+						<div class="container containerFAQ transitionAll">
+							<div class="container containerFAQTitle">
+								<span class="faqTitleSymb"><i class="fa fa-question-circle"></i></span><span class="faqTitleText">Why are there no spaces in the column names?</span>
+							</div>
+							<div class="container containerFAQAnswer transitionAll">
+								<div class="containerInner">
+									If you are using a Google Spreadsheet, you will notice that spaces are removed from the column names. Unfortunately, Google removes them, so if you want your column names to have a space, replace each space in the column name with two dashes ('--') and TableBuilder will format the names appropriately. For example, the column "First Name" should be "First--Name" in your spreadsheet. For more detailed instructions, please see the <a href="/wiki.html" target="_blank">wiki</a>.
 								</div>
 							</div>
 						</div>
