@@ -1603,7 +1603,7 @@ var dataviz = (function() {
             	jQuery('*[data-role="tool_save_embed"]').on('click', function() {
             		jQuery('.containerSaveModal').removeClass('hiddenContainer');
             		method.tool_setup.toggle_option_buttons(jQuery('*[data-role="save_options"]'))
-            		jQuery('*[data-role="embed_output"]').val('<link rel="stylesheet" type="text/css" href="css/table_builder.min.'+_version_num+'.css">\n'+((jQuery.isEmptyObject(method.table.output_custom_styles(true))) ? '' : (method.table.output_css()+'\n\t'))+'<script type="text/javascript" src="js/jquery.table_builder.min.'+_version_num+'.js"></script>\n'+method.table.output_javascript());
+            		jQuery('*[data-role="embed_output"]').val('<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/robkandel/tablebuilder/master/css/table_builder.min.'+_version_num+'.css">\n'+((jQuery.isEmptyObject(method.table.output_custom_styles(true))) ? '' : (method.table.output_css()+'\n\t'))+'<script type="text/javascript" src="https://raw.githubusercontent.com/robkandel/tablebuilder/master/js/jquery.table_builder.min.'+_version_num+'.js"></script>\n'+method.table.output_javascript());
             		jQuery('*[data-role="javascript_output"]').val('jQuery("#'+jQuery('#the_table_wrapper').data()['dataviz.table_builder']['_settings']['random_id']+'").table_builder(' + method.table.output_custom_settings(false) + ');');
             		jQuery('*[data-role="style_output"]').val(method.table.output_custom_styles(false));
             	});
