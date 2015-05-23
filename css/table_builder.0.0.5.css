@@ -358,7 +358,7 @@
     position: relative;
     width: 35px;
     height: 35px;
-    background-image: url(images/table_builder_preloader.gif);
+    background-image: url('https://raw.githubusercontent.com/robkandel/tablebuilder/master/css/images/table_builder_preloader.gif');
     background-repeat: no-repeat;
     margin: auto;
     background-size: 35px 35px;
