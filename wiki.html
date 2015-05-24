@@ -11,9 +11,10 @@
 	<link rel="icon" href="images/robkandel_favicon.ico" type="image/vnd.microsoft.icon">
 	<link rel="shortcut icon" href="images/robkandel_favicon.ico" type="image/vnd.microsoft.icon">
 	<link rel="apple-touch-icon" href="images/apple_touch_robkandel_favicon.png" type="image/png">
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700,400,300' rel='stylesheet' type='text/css'>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/dataviz_generator.min.0.2.0.css">
+	<link rel="stylesheet" type="text/css" href="css/dataviz_wiki.0.2.0.css">
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<!--[if lt IE 9]> 
 	<script>
@@ -26,12 +27,13 @@
 	</script>
 	<script type="text/javascript" src="js/respond.js"></script>
 	<![endif]-->
+	<script type="text/javascript" src="js/dataviz_wiki.0.0.2.js"></script>
 </head>
-<body>
+<body class="bodyAbsolute">
 	<header class="headerWrapper transitionAll">
 		<hgroup class="headerInnerWrapper transitionAll">
-			<div class="headerLogo transitionAll">
-				<div class="headerTitle transitionAll">TableBuilder Generator</div>
+			<div class="headerLogo transitionAll" style="height: 3.14286em; overflow:hidden;">
+				<div class="headerTitle transitionAll">TableBuilder <span style="color: #aaa; font-style:italic; font-size: .7em">JS</span></div>
 				<div class="clearAll"></div>
 			</div>
 			<div class="optionWrapper transitionAll">
@@ -39,43 +41,1013 @@
 					<div class="navIcon transitionAll"><span></span><span></span><span></span><span></span></div>
 				</div>
 				<div id="nav_list" class="navListWrapper">
-					<div class="buttonItem transitionAll stateButton">
+					<div class="buttonItem transitionAll stateButton stateButtonActive" data-role="state_home" data-index="0">
 						<span class="stateButtonSymbol transitionAll">
 							<i class="fa fa-home transitionAll"></i>
 						</span>
 						<span class="stateButtonText transitionAll">
-							Home
+							Getting Started
 						</span>
 					</div>
+					<div class="menuOptions">
+							<ul>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="home">Input Data</li>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="home_save">Saving Table</li>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="home_update">Updating Table</li>
+							</ul>
+						</div>
+					<div class="buttonItem transitionAll stateButton" data-role="state_dev" data-index="2">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-code transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Development
+						</span>
+					</div>
+					<div class="menuOptions">
+							<ul>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="dev_options">Options</li>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="dev_events">Events</li>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="dev_callbacks">Callbacks</li>
+							</ul>
+						</div>
+					<div class="buttonItem transitionAll stateButton" data-role="state_change" data-index="3">
+						<span class="stateButtonSymbol transitionAll">
+							<i class="fa fa-code-fork transitionAll"></i>
+						</span>
+						<span class="stateButtonText transitionAll">
+							Change Log
+						</span>
+					</div>
+					<div class="menuOptions">
+							<ul>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="change_support">Support</li>
+								<li class="sectionCategory buttonItem transitionAll link" data-role="change_contact">Contact</li>
+							</ul>
+						</div>
 					<div class="clearAll"></div>
 				</div>
 			</div>
 			<div class="clearAll"></div>
 		</hgroup>
 	</header>
-	<section class="transitionAll container containerSection containerSectionContent" data-role="home_wrapper" style="position: relative;">
+	<section class="transitionAll container containerSection containerSectionContent containerSectionWiki" data-role="home_wrapper">
 		<div class="container containerHomeWrapper">
-			<div class="container containerTitleWrapper">
-				<div class="pageTitle">TableBuilder<span>JS</span></div>
-				<div class="pageSubhead">Build beautiful and customizable HTML tables without writing a single line of code</div>
-				<div class="clearAll"></div>
-			</div>
-			<div class="containerDescriptionWrapper containerDescriptionWrapperCenter">
-				<div class="containerInner">
-					<div class="containerTitle">
-						Wiki coming soon
-					</div>
-					<div class="containerDescriptionText">
-						Complete documentation will be be available very shortly!
-					</div>
+			<div class="container containerWikiTitle">
+				<div class="containerMaxWith">
+					<div class="sectionTitle">Documentation</div>
 				</div>
 			</div>
-			<!-- <footer>
+			<div class="containerDescriptionWrapper">
+				<div class="leftRail transitionAll">
+					<div class="leftRailOptions">
+						<div class="sectionSubtitle buttonItem transitionAll">TableBuilder JS</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="home">Getting Started</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="home_data">Input Data</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="home_save">Saving Table</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="home_update">Updating Table</div>
+						<div class="sectionSubtitle buttonItem transitionAll">Development</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="dev_options">Options</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="dev_events">Events</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="dev_callbacks">Callbacks</div>
+						<div class="sectionSubtitle buttonItem transitionAll">Change Log</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="change_log">Changes</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="change_support">Support</div>
+						<div class="sectionCategory buttonItem transitionAll" data-role="change_contact">Contact</div>
+					</div>
+				</div>
+				<div class="rightRail transitionAll">
+					<div class="infoContainer infoContainerActive" data-name="preloader"></div>
+					<div class="infoContainer" data-name="home">
+						<div class="infoTitle">
+							Getting Started
+						</div>	
+						<div class="infoDescription">
+							Build beautiful and customizable HTML tables without writing a single line of code. 
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Compatibility
+							</div>
+							<div class="infoSectionText">
+								TableBuilder has been tested in and confirmed to work in the following browsers:
+								<ul>
+									<li>Chrome</li>
+									<li>Firefox</li>
+									<li>Safari</li>
+									<li>Internet Explorer 9/10/11</li>
+									<li>Opera</li>
+								</ul>
+								TableBuilder's only dependency is jQuery. A version of jQuery will be provided if you download the your saved project but will not be included in the embed code provided. This is because jQuery is commonly included in most websites and therefore it avoids duplication.<br/><br/>
+								<div class="comment"><sup>**</sup>TableBuilder will work in IE 8 as long as you include respond.js on your site and put all the CSS inside the < head > tags above the respond.js script. For more information, please see their <a href="https://github.com/scottjehl/Respond">documentation</a>.</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Compilling Data
+							</div>
+							<div class="infoSectionText">
+								The TableBuilder plugin currently can handle data from a Google Spreadsheet <span class="comment">(the preferred source)</span>, CSV file or an already existing HTML table <span class="comment">(javascript only)</span>.<br/><br/>
+								Building a table with TableBuilder is easy with the <a href="http://robkandel.github.io/tablebuilder/" target="_blank">TableBuilder generator tool</a>. However, if you know how you to a jQuery plugin, you can add the options yourself. <br/><br/>
+								If you are using a Google Spreadsheet, you will need to "Publish to the web". If you are using a CSV file, make sure the data if formatted properly. If you are using an already existing table, simply leave the src option blank. Please see <span data-role="home_data" class="link">input data</span> for more information on each data source.
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Start Building
+							</div>
+							<div class="infoSectionText">
+								Once you have your data, head over to <a href="http://robkandel.github.io/tablebuilder/" target="_blank">http://robkandel.github.io/tablebuilder/</a> to create a beautiful HTML table with just a few clicks. <br/><br/>First click on "Insert Data" or "Start now, it's free" button and choose the appropriate data source. Then create your table and adjust any options or styles to best incorporate the table into your website. <br/><br/>Once you have changed all the options and styles, click the "Save" button and download your project, or get the embed code for the quickest way to get your table into your website.
+							</div>
+						</div>
+						<div class="paginationBlock">
+							<div class="paginationText">
+								<span class="paginationTitle">Next Step</span>: <span class="link" data-role="home_data">Input Data <i class="fa fa-arrow-circle-right"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="home_data">
+						<div class="infoTitle">
+							Input Data
+						</div>	
+						<div class="infoDescription">
+							Set up your data to use in the TableBuilder plugin or the generator tool
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Google Spreadsheet
+							</div>
+							<div class="infoSectionText">
+								Using Google Spreadsheets is the preferred data source for your table. This is because it is easiest to update the data without having to update table or TableBuilder project. We highly recommend using Google Spreadsheets as your data source!<br/><br/>
+								To get started, first create a <a href="https://www.google.com/sheets/about/" target="_blank">new spreadsheet</a>. Input your data, and remember, you can always import your data from a Microsoft Excel file.<br/><br/>
+								Once your data is ready, you will need to "Publish to the web". <b>TableBuilder will ONLY work if you have clicked "Publish to the web" on your Google Spreadsheet.</b> To do this, first click "File" and then find the "Publish to the web" option and click.<br/>
+								<div class="helperImage"><img src="images/tb_explainer_google_publish.jpg" /></div>
+								Now, on the box that just popuped up, click the blue "Publish" button. Find the URL that is highlighted<br/>
+								<div class="helperImage helperImageWidth"><img src="images/tb_explainer_google_link.jpg" /></div>
+								This is the URL you should paste into the field in the "<i>Google Spreadsheet</i>" table labeled "Paste your published Google Spreadsheet URL here". Then click on the blue "<i>Create Table</i>" button to the right.
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								CSV File
+							</div>
+							<div class="infoSectionText">
+								If you do not have, or want to use, Google Spreadsheets, you have another option. A CSV File is a "Comma Separated Values" file which is one of the "Save As" options in Microsoft Excel. Complile your data in Excel and then go to "File" and "Save As". Change the file type to "Comma Separated Values (.csv)". For more information, see <a href="https://support.office.com/en-za/article/Import-or-export-text-txt-or-csv-files-5250ac4c-663c-47ce-937b-339e391393ba" target="_blank">Micrsoft's documentation</a>.<br/><br/>
+								Once you have your CSV file, click the "<i>CSV File</i>" tab on the "<i>Input Data</i>" page. Then either drag and drop your file inside the dotted box or click where it says "<i>Choose your file</i>" to manually select your CSV file.<br/><br/>
+								The dotted box will be replaced with your data. If you need to make any changes, you can edit the data inside the box or click the button that says "<i>Use a different file</i>" and start over. Once you are ready, click on the blue "<i>Create Table</i>" button under your data.
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Existing Table
+							</div>
+							<div class="infoSectionText">
+								If you have an existing HTML table in the DOM, you can add the functionality of TableBuilder. Unfortunately, you can only do this through javascript, you can't use the generator tool.<br/><br/>
+								To use an existing table, leave the "src" blank and call the TableBuilder plugin on the id of your table.
+								<div class="infoExampleCode">
+									Example:<br/><br/>
+									<table id="table" border="1">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Age</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>John</td>
+												<td>5</td>
+											</tr>
+											<tr>
+												<td>Jane</td>
+												<td>3</td>
+											</tr>
+											<tr>
+												<td>Joe</td>
+												<td>12</td>
+											</tr>
+											<tr>
+												<td>Jackie</td>
+												<td>14</td>
+											</tr>
+									</table><br/>
+									<span>&lt;<span>script</span> <span>type</span>=<span>"text/javascript"</span>&gt;</span><br/>jQuery(document).ready(function() {jQuery('#table').table_builder();});<br/><span>&lt;<span>/script</span>&gt;
+								</div>
+							</div>
+						</div>
+						<div class="paginationBlock">
+							<div class="paginationText">
+								<span class="paginationTitle">Next Step</span>: <span class="link" data-role="home_save">Saving Your Table <i class="fa fa-arrow-circle-right"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="home_save">
+						<div class="infoTitle">
+							Saving Your Table
+						</div>	
+						<div class="infoDescription">
+							You can either download the entire project to share with others or just get the embed code to quickly insert a table into your website.
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Download
+							</div>
+							<div class="infoSectionText">
+								After clicking the "<i>Save</i>" option, choose the download button and your entire project will be available for download. Included in the download are all the necessary files to view and share the table as well as return to update the table.<br/><br/>
+								<div class="infoExampleCode">
+									<pre><code>TableBuilder/
+├── css/
+│   ├── table_builder.0.0.5.css
+│   ├── table_builder.min.0.0.5.css
+│   └── images/
+│      	└── table_builder_preloader.gif
+│   
+├── js/
+│   ├── jquery-1.11.2.min.js
+│   ├── jquery.table_builder.0.0.5.js
+│   ├── jquery.table_builder.min.0.0.5.js
+│   └── respond.js
+│
+├── TableBuilder_config.json
+├── TableBuilder.html
+└── README.md</code></pre> 
+								</div>
+								<br/><br/> To open the table, find the download and unzip the folder. Then open the "<i>TableBuilder.html</i>" file in any supported browser (such as Chrome, Firefox, etc). Included in the project file are all the CSS/JS files if you would like to try to improve or furthur customize TableBuilder. Please remember this project is an open source project licensed licensed under an <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>. <br/><br/>Make sure to keep the "<i>TableBuilder_config.json</i>" file to update your table in the future. For more information on updating your table, see <span class="link" data-role="home_update">updating your table</span>.
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Embed Code
+							</div>
+							<div class="infoSectionText">
+								If you don't want to save your project or quickly want to add TableBuilder to your website, use the "<i>Embed Code</i>" in the "<i>Save</i>" option. This will show a popup box with three options. <br/><br/>
+								The first option, "<i>Embed Code</i>", provides everything you need to embed your table into any website. Simply copy and paste the enter text block into your website where you would like to display your table. <br/></br/>
+								The second option, "<i>JavaScript</i>", provides just the JavaScript source code for the TableBuilder plugin. This is helpful if you are updating an existing project.<br/><br/>
+								The third option, "<i>Custom Styles</i>", provides just the custom CSS that has been modified in your project. This is helpful if you are updating an existing project.<br/><br/>
+								If you are unsure how to embed your table, copy everything from the "<i>Embed Code</i>" tab and paste it to your website where you want to display your table. <br/><br/>
+								TableBuilder <b>requires</b> jQuery to work and is <b>not</b> included in the embed code, because most websites have jQuery already on the page. If you embed your project and nothing is happening, you might not have jQuery on your site. If you think this is the case, add the following line to the rest of your embed code.<br/><br/>
+								<div class="infoExampleCode"><span>&lt;<span>script</span> <span>src</span>=<span>"http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"</span>&gt;</span></div>
+							</div>
+						</div>
+						<div class="paginationBlock">
+							<div class="paginationText">
+								<span class="paginationTitle">Next Step</span>: <span class="link" data-role="home_update">Updating Your Table <i class="fa fa-arrow-circle-right"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="home_update">
+						<div class="infoTitle">
+							Updating your table
+						</div>	
+						<div class="infoDescription">
+							When you download your project, make sure to keep the file named "<i>TableBuilder_config.json</i>", this file can be used to update any option or style from an existing project or it can be used to create a template with new data. 
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Update an Existing Project
+							</div>
+							<div class="infoSectionText">
+								When you download your project, you will receive a file named "<i>TableBuilder_config.json</i>", this file stores your data, all your settings as well as the custom styles you added to your table. If you want to update an option or style on your table, simply go to the data input page and choose the "<i>Update existing table</i>" tab. Then drag and drop the "<i>TableBuilder_config.json</i>" file where directed. All your settings and styles will be loaded in when you click the "<i>Create Table</i>" button.
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Create a Template
+							</div>
+							<div class="infoSectionText">
+								You can also create a template for TableBuilder if you create a style for your website or have options that you want to repeat. All you need to do is create a table with the styles and/or options you want to repeat. Then download the project and keep the "<i>TableBuilder_config.json</i>" file. Each time you want to create a new table with this template, simply go to the data input page and choose the "<i>Update existing table</i>" tab. Then drag and drop the "<i>TableBuilder_config.json</i>" file where directed. <br/><br/>
+								Now you can change the data source by adding your new Google Spreadsheet or clicking the "<i>Use a different file</i>" button under the "<i>CSV File</i>" tab and then drag and drop and new CSV file where directed. The options and styles will be applied to the new data source. You can always change or modify any option in addition to the ones from the template.
+							</div>
+						</div>
+						<div class="paginationBlock">
+							<div class="paginationText">
+								<span class="paginationTitle">Next Step</span>: <span class="link" data-role="dev_options">Development Overview <i class="fa fa-arrow-circle-right"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="dev_options">
+						<div class="infoTitle">
+							TableBuilder Options
+						</div>	
+						<div class="infoDescription">
+							List of all the options, with description and developer information, that can be used in TableBuilder JS
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								blank_data
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Characters to display if column data is blank (absent). To display nothing, change the option to ''. <div class="comment"><sup>**</sup>If the row is blank and the column is sorted, the row will always be sorted last regardless of how the blank data is displayed</div></div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">'-'</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								bold_sort
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a CSS class to the column that is currently sorted that will bold the cell in the column</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								column_classes
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a class to specific columns in both the table header and each row. The object should be formatted with the index of the appropriate column as the key and the class name as the value.
+								<div class="infoExampleCode">
+									Example:<br/><br/>
+									column_classes: {<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;1: 'warning',<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;3: 'complete'<br/>
+									}
+								</div>
+								</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">object</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">{}</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								column_width
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Change the width of the each column to optimize the display. Use percents to adjust each column's width. If not set, the table will make each column equal size. To hide a column, set the width to 0</div>
+								<div class="infoExampleCode">
+									Example:<br/><br/>
+									column_width: [10, 20, 30, 40]
+								</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">array</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">[]</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								date_format
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Format date to specific format</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">'MMMM DD, YYYY'</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								decimals
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Number of decimal places a number can display, will round if number of decimals is larger</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">number</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">2</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								fixed_header
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Keep the header at the top of the browser when scrolling. If your website has a fixed item at the top of the page, you will need to adjust the CSS of the header to be below the height of the fixed item</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								format_column
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Format the numbers of only certain columns. This will only be applied if the format_number option is set to false</div>
+								<div class="infoExampleCode">
+									Example:<br/><br/>
+									format_column: [0,3,4]
+								</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">array</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">[]</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								format_number
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Format all numbers in the table to show a comma every three decimal places</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								random_id
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Helper function used to create scope to allow multiple tables on same page</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								ranking
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a incremental numerical column. If the table has a default sort column, the numbers will be set based on the sort on initial display of the table. If no column is set to sort, the numbers will be set based on the order of the rows in the data</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">false</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								refresh_data
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Number of minutes to refresh data from Google Spreadsheet. To stop the refresh counter, change the option to -1</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">number</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">0</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								repeat_header
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Repeat header every X amount of rows regardless of pagination. The repeated header can be clickable to sort the table if the sortable option is set to true</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">number</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">false</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								responsive_table
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Make the table responsive to optimize display for mobile layouts. If your website is not a responsive site, change the option to false so the table will not adjust if the screen size changes</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								row_classes
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a class to specific rows based on the index of the source data. The class will stay with the row regardless of how it is sorted. The object should be formatted with the index of the appropriate row as the key and the class name as the value.
+								<div class="infoExampleCode">
+									Example:<br/><br/>
+									row_classes: {<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;1: 'warning',<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;3: 'complete'<br/>
+									}
+								</div></div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">object</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">{}</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								search_button_text
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Change the text of the search button</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">'Search'</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								search_input_text
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Change the text of the search input field</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">'Search table'</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								show_row_options
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Show drop down option to change the number of visible rows. If the total number of rows is less than the lowest value in the visible_row_options setting, then the drop down will be hidden regardless</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								show_search
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Allow users to search for values in the table</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								sort_column
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Index of the column to sort when the table is initialized</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">number</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								sort_order
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Order the table sorts a column the first time it is sorts each column. Either 'asc' or 'desc' (either A -> Z or Z -> A)</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">'desc'</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								sort_types
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Used as a helper to specifically declare the data type of each column to help sort and format data. Certain browsers can interpret data incorrectly based on the format, so this will setting will overwrite this error.
+								<div class="infoExampleCode">
+									Example:<br/><br/>
+									sort_types: ['', '', 'date', 'number', 'time', '', '']
+								</div></div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">array</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">[]</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								sortable
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">If columns are clickable for the user to resort the table</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">true</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								src
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">The data source, for more information, please see the section describing how to<span class="link" data-role="home_data">input data</span></div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string, object or HTML table</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								table_class
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a custom CSS class to the table</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								table_copyblock
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a text block above the table</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								table_credit
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a credit below the table. Value will be proceeded by 'PRODUCED BY:'</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								table_source
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a source below the table. Value will be proceeded by 'SOURCE:'</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								table_source_link
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a URL (link) to the table_source option to wrap the entire string in the link</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								table_title
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a title above the table</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">null</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								time_format
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Change the time format to a specific format</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">string</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">'hh:mm A'</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								visible_row_options
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">The drop down options for users to change the number of visible rows. Can be any integer, with 1000000 displayed as "All Rows". If the total number of rows is less than the lowest value in the this setting, then the drop down will be hidden regardless</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">array</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">[10, 25, 50, 100, 1000000]</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								visible_rows
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Number of rows visible when the table is initialized</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">number</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">25</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								zero_out
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Formats all numbers to display the number of decimal places set in the decimals option. This will add decimal places if not in the original data</div>
+								<div class="row"><span class="devOptionTextTitle">Type</span> : <span class="devOptionTextResult">boolean</span></div>
+								<div class="row"><span class="devOptionTextTitle">Default</span> : <span class="devOptionTextResult devOptionTextDefaultResult">false</span></div>
+							</div>
+						</div>
+						<div class="paginationBlock">
+							<div class="paginationText">
+								<span class="paginationTitle">Next Step</span>: <span class="link" data-role="dev_events">TableBuilder Events <i class="fa fa-arrow-circle-right"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="dev_events">
+						<div class="infoTitle">
+							TableBuilder Events
+						</div>	
+						<div class="infoDescription">
+							Events allow you to interact with your table through javascript
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Events
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">
+									<div class="infoExampleCode">
+										Example:<br/><br/>
+										jQuery('#table').table_builder('next');
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								add_row_data
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add a row of data to the table</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">data (array), index (number)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								add_table_rows
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Add multiple rows to the table</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">data (array), pagination offset (number), number of rows (number)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								clear_search
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Clears the search filter and displays all rows</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								clear_table_rows
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Clears all the table rows and pagination</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								destroy
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Destroys the table and all data associated with it. If the source is an HTML table, will restore original HTML table</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								next
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Paginates the table to the next page based on the total rows available and the number of visible rows</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								paginate
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Paginates the table to a specific page based on the total rows available and the number of visible rows</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">total rows (number), current page (number)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								prev
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Paginates the table to the previous page based on the total rows available and the number of visible rows</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								refresh_data
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Refreshes data, used only if data source is a Google Spreadsheet</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">minutes (number)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								search
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Search the table to values that contain a specific term</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">term (string)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								sort
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Sort the table by the column index and direction</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">column index (number), direction ('asc' or 'desc'), type (optional if need to specify data type of column)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								update
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Update the TableBuilder settings</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">settings (object with key name of setting name)</span></div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								visible_rows
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">Change the number of visible rows on the table</div>
+								<div class="row"><span class="devOptionTextTitle">Parameters</span> : <span class="devOptionTextResult">number of rows (number)</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="dev_callbacks">
+						<div class="infoTitle">
+							TableBuilder Callbacks
+						</div>	
+						<div class="infoDescription">
+							Callbacks allows you to listen to events to know when actions are completed.
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Callbacks
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner">
+									<div class="infoExampleCode">
+										Example:<br/><br/>
+										jQuery('#table').on('build_complete.dataviz.table_builder', function(e) {<br/><br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;//tableBuilder has finished building your table, add your code here<br/><br/>
+										});
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								initialize
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">When the table is first initialized</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								failed
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">If the table fails to initialize</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								building_table
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">The table is starting to build DOM elements</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								parse_data_complete
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">All data has been parsed from source</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								build_complete
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">All DOM elements have been successfully built</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								add_table_rows
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">Rows are being added to the table</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								row_added
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">The row that has just been added to the table</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								sort_complete
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">Sort has finished</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								rows_cleared
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">All the rows have been cleared</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								visible_rows_changed
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">Number of rows has changed</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								pagination_complete
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">Pagination has completed</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								search
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">User has searched the table</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								clear_search
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">The search has been cleared and restoring original data</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								data_refresh
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">Data has refreshed</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								destroy_table
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">Table has been destroyed</div>
+							</div>
+						</div>
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle devOptionTitle">
+								error
+							</div>
+							<div class="infoSectionText devOptionText">
+								<div class="devOptionExplaniner devCallbackExplaniner">There was an error trying to access TableBuilder Events</div>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="change_log">
+						<div class="infoTitle">
+							Change Log
+						</div>	
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Version 0.0.5
+							</div>
+							<div class="infoSectionText">
+								Stable version completely rewritten to allow for callback and events
+								<ul>
+									<li>Add Events</li>
+									<li>Add Callbacks</li>
+									<li>Allows for multiple tables on page</li>
+									<li>Improves search</li>
+									<li>Improves pagination</li>
+									<li>Multiple style changes</li>
+									<li>Add destory</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="change_support">
+						<div class="infoTitle">
+							Contributing
+						</div>	
+						<div class="infoSectionBlock">
+							<div class="infoSectionText">
+								This project is hosted by <a href="https://github.com/robkandel/tablebuilder" target="_blank">Rob Kandel</a> on <a href="https://github.com/robkandel/tablebuilder" target="_blank">Github</a>. It is an open source project, so if you have a way to improve TableBuilder, please fork the project and help make it better!
+							</div>
+						</div>
+					</div>
+					<div class="infoContainer" data-name="change_contact">
+						<div class="infoTitle">
+							Contact
+						</div>	
+						<div class="infoSectionBlock">
+							<div class="infoSectionTitle">
+								Found a bug?
+							</div>
+							<div class="infoSectionText">
+								If you find a bug or need help with anything related to TableBuilder, please report it on <a href="https://github.com/robkandel/tablebuilder/issues/" target="_blank">Github</a>.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearAll"></div>
+			</div>
+			<footer>
 				<div class="footerInner">
 					Created by Rob Kandel <span>&nbsp;|&nbsp;</span> <a href="https://github.com/robkandel/tablebuilder" target="_blank"><i class="fa fa-github"></i> Fork this project on Github</a>
 				</div>
-			</footer> -->
+			</footer>
 		</div>
 	</section>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			dataviz_wiki.init();
+		});
+	</script>
 </body>
 </html>
