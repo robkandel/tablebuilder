@@ -2032,6 +2032,8 @@ var dataviz = (function() {
                 if (!a) {
             	    delete _updates['random_id'];
             	}
+            	delete _updates['row_classes'];
+            	delete _updates['column_classes'];
                 var _settings = JSON.stringify(_updates, null, '')
                 return _settings.replace(/\[[^\]]*?\]/g, function(g0, g1) {
                     return g0.replace(/\t/g, '').replace(/\n/g, '').replace(/\r/g, '');

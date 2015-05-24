@@ -11,7 +11,7 @@
 
     function tb(element, options) {
         this._element = jQuery(element);
-        this._settings = jQuery.extend({}, tb._defaults, options);
+        this._settings = jQuery.extend(true, {}, tb._defaults, options);
         this._defaults = tb._defaults;
         this.setup();
     };
