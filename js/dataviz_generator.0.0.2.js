@@ -762,7 +762,6 @@ var dataviz = (function() {
                 }
                 if ('table_credit' in a) {
                     jQuery('#title_credit').val(a.table_credit);
-                    jQuery('#tool_option_subcat_source').slideDown(150);
                 }
                 if ('fixed_header' in a) {
                     if (a.fixed_header) {
@@ -970,8 +969,8 @@ var dataviz = (function() {
                             'table_source': null
                         });
                         jQuery('#the_table_wrapper').table_builder('source_text');
+                        jQuery('.toolOptionExtra_source').slideUp(150);
                         if (jQuery('#title_credit').val() == 'Insert data source') {
-	                        jQuery('.toolOptionExtra_source').slideUp(150);
 	                        jQuery('.dropDownItem[data-value="source"]').addClass('dropDownItemNotActive');
 	                    }
                     }
@@ -1000,7 +999,6 @@ var dataviz = (function() {
                             'table_credit': jQuery('#title_credit').val()
                         });
                         jQuery('#the_table_wrapper').table_builder('credit_text', jQuery('#title_credit').val());
-                        jQuery('.toolOptionExtra_source').slideDown(150);
                         jQuery('.dropDownItem[data-value="source"]').removeClass('dropDownItemNotActive');
                     }
                     if (jQuery('#title_credit').val() == '' || jQuery('#title_credit').val() == 'Insert a credit') {
@@ -1009,7 +1007,6 @@ var dataviz = (function() {
                         });
                         jQuery('#the_table_wrapper').table_builder('credit_text');
                         if (jQuery('#title_source').val() == 'Insert data source'){
-	                        jQuery('.toolOptionExtra_source').slideUp(150);
 	                        jQuery('.dropDownItem[data-value="source"]').addClass('dropDownItemNotActive');
 	                    }
                     }
