@@ -74,8 +74,8 @@
         this.check_css_sheet();
     }
     tb.prototype.check_css_sheet = function() {
-    	if (!jQuery("link[href='https://raw.githubusercontent.com/robkandel/tablebuilder/gh-pages/css/table_builder.min."+tb._version+".css']").length) {
-    		jQuery('<link href="https://raw.githubusercontent.com/robkandel/tablebuilder/gh-pages/css/table_builder.min./table_builder.min.'+tb._version+'.css" rel="stylesheet">').appendTo("head");
+    	if (!jQuery("link[href='http://robkandel.github.io/tablebuilder/css/table_builder.min."+tb._version+".css']").length) {
+    		jQuery('<link href="http://robkandel.github.io/tablebuilder/css/table_builder.min.'+tb._version+'.css" rel="stylesheet">').appendTo("head");
     	}
     	this.init();
     }
