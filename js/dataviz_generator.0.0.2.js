@@ -1595,7 +1595,7 @@ var dataviz = (function() {
             		jQuery('.containerPreloaderModal').removeClass('hiddenContainer');
             		method.tool_setup.toggle_option_buttons(jQuery('*[data-role="save_options"]'))
             		var zip = new JSZip();
-            		method.download.get_external(zip, ['css/table_builder.'+_version_num+'.css','css/table_builder.min.'+_version_num+'.css', 'js/jquery-1.11.2.min.js', 'js/respond.js', 'js/jquery.table_builder.'+_version_num+'.js', 'js/jquery.table_builder.min.'+_version_num+'.js'], 0)
+            		method.download.get_external(zip, ['css/table_builder.'+_version_num+'.css','css/table_builder.min.'+_version_num+'.css', 'js/jquery-1.11.2.min.js', 'js/respond.js', 'js/jquery.table_builder.'+_version_num+'.js', 'js/jquery.table_builder.min.'+_version_num+'.js', 'README.md', 'LICENSE'], 0)
             	});
             	jQuery('*[data-role="tool_save_embed"]').on('click', function() {
             		jQuery('.containerSaveModal').removeClass('hiddenContainer');
