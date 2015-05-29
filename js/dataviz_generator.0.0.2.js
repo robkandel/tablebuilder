@@ -762,7 +762,6 @@ var dataviz = (function() {
                 }
                 if ('table_credit' in a) {
                     jQuery('#title_credit').val(a.table_credit);
-                    jQuery('#tool_option_subcat_source').slideDown(150);
                 }
                 if ('fixed_header' in a) {
                     if (a.fixed_header) {
@@ -970,8 +969,8 @@ var dataviz = (function() {
                             'table_source': null
                         });
                         jQuery('#the_table_wrapper').table_builder('source_text');
+                        jQuery('.toolOptionExtra_source').slideUp(150);
                         if (jQuery('#title_credit').val() == 'Insert data source') {
-	                        jQuery('.toolOptionExtra_source').slideUp(150);
 	                        jQuery('.dropDownItem[data-value="source"]').addClass('dropDownItemNotActive');
 	                    }
                     }
@@ -1000,7 +999,6 @@ var dataviz = (function() {
                             'table_credit': jQuery('#title_credit').val()
                         });
                         jQuery('#the_table_wrapper').table_builder('credit_text', jQuery('#title_credit').val());
-                        jQuery('.toolOptionExtra_source').slideDown(150);
                         jQuery('.dropDownItem[data-value="source"]').removeClass('dropDownItemNotActive');
                     }
                     if (jQuery('#title_credit').val() == '' || jQuery('#title_credit').val() == 'Insert a credit') {
@@ -1009,7 +1007,6 @@ var dataviz = (function() {
                         });
                         jQuery('#the_table_wrapper').table_builder('credit_text');
                         if (jQuery('#title_source').val() == 'Insert data source'){
-	                        jQuery('.toolOptionExtra_source').slideUp(150);
 	                        jQuery('.dropDownItem[data-value="source"]').addClass('dropDownItemNotActive');
 	                    }
                     }
@@ -1598,12 +1595,12 @@ var dataviz = (function() {
             		jQuery('.containerPreloaderModal').removeClass('hiddenContainer');
             		method.tool_setup.toggle_option_buttons(jQuery('*[data-role="save_options"]'))
             		var zip = new JSZip();
-            		method.download.get_external(zip, ['css/table_builder.'+_version_num+'.css','css/table_builder.min.'+_version_num+'.css', 'js/jquery-1.11.2.min.js', 'js/respond.js', 'js/jquery.table_builder.'+_version_num+'.js', 'js/jquery.table_builder.min.'+_version_num+'.js'], 0)
+            		method.download.get_external(zip, ['css/table_builder.'+_version_num+'.css','css/table_builder.min.'+_version_num+'.css', 'js/jquery-1.11.2.min.js', 'js/respond.js', 'js/jquery.table_builder.'+_version_num+'.js', 'js/jquery.table_builder.min.'+_version_num+'.js', 'README.md', 'LICENSE'], 0)
             	});
             	jQuery('*[data-role="tool_save_embed"]').on('click', function() {
             		jQuery('.containerSaveModal').removeClass('hiddenContainer');
             		method.tool_setup.toggle_option_buttons(jQuery('*[data-role="save_options"]'))
-            		jQuery('*[data-role="embed_output"]').val('<link rel="stylesheet" type="text/css" href="css/table_builder.min.'+_version_num+'.css">\n'+((jQuery.isEmptyObject(method.table.output_custom_styles(true))) ? '' : (method.table.output_css()+'\n\t'))+'<script type="text/javascript" src="js/jquery.table_builder.min.'+_version_num+'.js"></script>\n'+method.table.output_javascript());
+            		jQuery('*[data-role="embed_output"]').val('<link rel="stylesheet" type="text/css" href="http://robkandel.github.io/tablebuilder/css/table_builder.min.'+_version_num+'.css">\n'+((jQuery.isEmptyObject(method.table.output_custom_styles(true))) ? '' : (method.table.output_css()+'\n\t'))+'<script type="text/javascript" src="http://robkandel.github.io/tablebuilder/js/jquery.table_builder.min.'+_version_num+'.js"></script>\n'+method.table.output_javascript());
             		jQuery('*[data-role="javascript_output"]').val('jQuery("#'+jQuery('#the_table_wrapper').data()['dataviz.table_builder']['_settings']['random_id']+'").table_builder(' + method.table.output_custom_settings(false) + ');');
             		jQuery('*[data-role="style_output"]').val(method.table.output_custom_styles(false));
             	});
@@ -2032,6 +2029,8 @@ var dataviz = (function() {
                 if (!a) {
             	    delete _updates['random_id'];
             	}
+            	delete _updates['row_classes'];
+            	delete _updates['column_classes'];
                 var _settings = JSON.stringify(_updates, null, '')
                 return _settings.replace(/\[[^\]]*?\]/g, function(g0, g1) {
                     return g0.replace(/\t/g, '').replace(/\n/g, '').replace(/\r/g, '');

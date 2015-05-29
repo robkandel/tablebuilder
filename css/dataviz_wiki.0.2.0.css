@@ -1,0 +1,310 @@
+/*//////////////////////////////////////////////////||
+// ROB KANDEL 										||
+// kandelrob@gmail.com								||
+// 													||
+// created 05.18.15	| updated 05.18.15				||
+// dataviz_wiki.css									||
+// version 0.2.0									||
+////////////////////////////////////////////////////*/
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left:0;
+	width: 100%;
+	height: 2.14285714285714em;
+	z-index: 999;
+}
+
+.containerHomeWrapper {
+	height: calc(100% - 5.28572em);
+}
+
+.containerWikiTitle {
+	position: relative;
+	background-color:#f5f5f5;
+	height: 5.71428571428571em;
+	line-height: 5.71428571428571em;
+}
+
+.containerMaxWith {
+	position: relative;
+	max-width: 85.71428571428571em;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+	font-size: 2.4em;
+	font-weight: 300;
+	color:#444;
+	letter-spacing: .2px;
+	text-align: center;
+}
+
+.leftRail {
+	position: relative;
+	display:none;
+}
+
+.rightRail {
+	position: relative;
+	
+}
+
+.leftRailOptions {
+	position: relative;
+}
+
+.sectionSubtitle, .sectionCategory {
+	position: relative;
+	margin: 8px 0;
+	cursor:pointer;
+	display:block;
+	background-color:#fff;
+	text-align: right;
+	border:none;
+	letter-spacing: .2px;
+}
+
+.sectionSubtitle {
+	font-size: 1.28571428571429em;
+	font-weight: 700;
+	color:#444;
+	cursor: default;
+}
+
+.sectionCategory {
+	font-size: 1.28571428571429em;
+	font-weight: 400;
+	color:#777;
+}
+
+.sectionCategory:hover {
+	background-color:#f5f5f5;
+	border:none;
+}
+
+.sectionSubtitle:hover {
+	border: none;
+	background-color:#fff;
+}
+
+.sectionHighlight, .sectionHighlight:hover {
+	background-color:#428bca;
+	color:#fff;
+}
+
+.infoContainer {
+	position: relative;
+	display:none;
+}	
+
+.infoContainerActive {
+	display:block;
+}
+
+[data-name="preloader"] {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-image: url('images/table_builder_preloader.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+	min-height: 400px;
+	background-size: 35px 35px;
+}
+
+.infoTitle {
+	font-size: 2.21429em;
+    font-weight: 700;
+    margin-bottom: 0.416667em;
+    margin-top: 6px;
+    position: relative;
+}
+
+.infoDescription {
+	position: relative;
+	padding: 1.42857142857143em;
+	background-color:#eee;
+	border-left: 5px solid #428bca;
+}
+
+.infoSectionBlock {
+	margin: 3.42857142857143em 0;
+}
+
+.infoSectionTitle {
+	font-size: 2.21429em;
+	font-weight: 300;
+	position: relative;
+	margin-bottom: 0.416667em;
+}
+
+.infoSectionText {
+	position: relative;
+	font-size: 16px;
+	color:#565656;
+}
+
+.comment {
+	font-size: 13px;
+	font-style:italic;
+	color:#777;
+	font-weight: 300;
+}
+
+.link {
+	cursor:pointer;
+	color: #428bca;
+}
+
+.link:hover {
+	text-decoration: underline;
+	color:#006697;
+}
+
+.paginationBlock {
+	position: relative;
+	padding: 1.42857142857143em 0;
+	margin: 1.42857142857143em 0;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.paginationText {
+	font-size: 1.42857142857143em;
+}
+
+.paginationTitle {
+	position: relative;
+	text-transform: uppercase;
+	font-weight: 700;
+}	
+
+.infoExampleCode {
+	position: relative;
+	padding: 1.42857142857143em;
+	background-color:#f5f5f5;
+	border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0.714286em 0;
+}
+
+.devOptionExplaniner {
+	position: relative;
+} 
+
+
+.row {
+	margin: 0.714286em 0;
+    position: relative;
+}
+
+.devOptionTextTitle {
+	background-color: #f5f5f5;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 4px 8px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.devOptionTextResult {
+	font-weight: 300;
+	color:#777;
+}
+
+.devOptionTextDefaultResult {
+	font-style:normal;
+	font-weight: 700;
+	color:#a82427;
+}
+
+.devCallbackExplaniner {
+	font-weight: 300;
+	color:#777;
+}
+
+.helperImage {
+	position: relative;
+	margin: 1.42857142857143em 0;
+	padding: 1.42857142857143em;
+	background-color:#f5f5f5;
+	border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.helperImage img {
+	max-width: 300px;
+}
+
+.helperImageWidth img {
+	max-width: 500px;
+}
+
+.containerDescriptionWrapper {
+	margin: 0 0.71428571428571em;
+}
+
+.menuOptions ul{
+	padding: 0;
+	margin: 0;
+}
+
+.menuOptions ul li {
+	text-align: center;
+	background-color:#363636;
+	color:#fff;
+	font-size: 14px;
+	padding: 0;
+}
+
+.menuOptions ul li:hover {
+	background-color:#363636;
+	color:#fff;
+}
+
+.stateButtonActive, .stateButtonActive:hover, .stateButton:hover {
+	background-color:#363636;
+	color:#fff;
+}
+
+@media screen and (min-width:769px) {
+	.leftRail {
+		width: 20%;
+		float: left;
+		display:inline-block;
+	}
+
+	.rightRail {
+		width: 75%;
+		float: right;
+	}
+
+	.leftRailOptions {
+		text-align: right;
+	}
+	
+	.menuOptions {
+		display:none;
+	}
+	
+	.stateButton:hover {
+		background-color:#428bca;
+	}
+	
+	.stateButtonActive, .stateButtonActive:hover {
+		background-color:#fff;
+		color:#428bca;
+	}
+}
+
+@media screen and (min-width:1220px) {
+	.containerDescriptionWrapper {
+		margin: auto;
+	}
+}

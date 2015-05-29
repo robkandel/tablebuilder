@@ -2,7 +2,7 @@
 // ROB KANDEL  										||
 // kandelrob@gmail.com								||
 // 													||
-// created 04.02.15	| updated 04.13.15				||
+// created 04.02.15	| updated 05.24.15				||
 // jquery.table_builder.js							||
 // version 0.0.5									||
 ////////////////////////////////////////////////////||
@@ -12,7 +12,7 @@
     function tb(element, options) {
         this._element = jQuery(element);
         this._settings = jQuery.extend({}, tb._defaults, options);
-        this._defaults = tb._defaults;
+        this._defaults = jQuery.extend(true, {}, tb._defaults);
         this.setup();
     };
 
@@ -74,8 +74,8 @@
         this.check_css_sheet();
     }
     tb.prototype.check_css_sheet = function() {
-    	if (!jQuery("link[href='css/table_builder.min."+tb._version+".css']").length) {
-    		jQuery('<link href="css/table_builder.min.'+tb._version+'.css" rel="stylesheet">').appendTo("head");
+    	if (!jQuery("link[href='http://robkandel.github.io/tablebuilder/css/table_builder.min."+tb._version+".css']").length) {
+    		jQuery('<link href="http://robkandel.github.io/tablebuilder/css/table_builder.min.'+tb._version+'.css" rel="stylesheet">').appendTo("head");
     	}
     	this.init();
     }
@@ -833,7 +833,7 @@
             data = this._data;
         }
         var _total = data.length,
-            _temp = (typeof(rows) != 'undefined' && !isNaN(rows)) ? rows : this._settings.rows;
+            _temp = (typeof(rows) != 'undefined' && !isNaN(rows)) ? rows : this._settings.visible_rows;
         var _counter = 0;
         for (var i = (_temp * (pagination - 1)); i < (((_temp * pagination) > _total) ? _total : (_temp * pagination)); i++) {
             if (this._settings.repeat_header) {
@@ -1031,7 +1031,7 @@
     	}
     }
     tb.prototype.visible_rows = function(rows) {
-        if (rows == 'all' || rows == 'All') {
+        if (typeof (rows) == 'string' && rows.toLowerCase() == 'all') {
             rows = 1000000
         };
         var _rows = ((typeof(rows) != 'undefined' && !isNaN(rows)) ? rows : this._settings.visible_rows);
@@ -1175,8 +1175,17 @@
             this._element.find('.tableBuilderMoreButtonsWrapper').remove();
             this.parse_data(this._settings.src);
         }
+        this.trigger('data_refresh', {
+            action: {
+                name: 'data_refresh',
+                value: {
+                	min: ((typeof(min) != 'undefined') ? parseFloat(min) : this._settings.refresh_data)
+                }
+            }
+        });
     }
     tb.prototype.destroy = function() {
+    	this.trigger('destroy_table');
         this._element.find('.tableBuilderWrapper').remove();
         //jQuery.removeData(this._element, "dataviz.table_builder");
         jQuery(this._element).removeData("dataviz.table_builder")
